@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 10;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StartMenuController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Label alignment="CENTER" layoutX="310.0" layoutY="98.0" prefHeight="116.0" prefWidth="640.0" text="CipherChef" textAlignment="CENTER" textFill="#0095cb">
+               <font>
+                  <Font name="System Bold" size="96.0" />
+               </font>
+            </Label>
+            <Button fx:id="encryptionButton" alignment="CENTER" layoutX="424.0" layoutY="296.0" mnemonicParsing="false" onAction="#encryptionButtonPressed" prefHeight="125.0" prefWidth="412.0" style="-fx-background-color: #0095CB; -fx-border-color: #606060; -fx-border-width: 5; -fx-text-fill: #000000;" text="SZYFROWANIE" textAlignment="CENTER">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Button>
+            <Button fx:id="decryptionButton" alignment="CENTER" layoutX="424.0" layoutY="465.0" mnemonicParsing="false" onAction="#decryptionButtonPressed" prefHeight="125.0" prefWidth="412.0" style="-fx-background-color: #0095CB; -fx-border-color: #606060; -fx-border-width: 5; -fx-text-fill: #000000;" text="DESZYFROWANIE" textAlignment="CENTER">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Button>
+            <Button fx:id="authorsButton" layoutX="14.0" layoutY="638.0" mnemonicParsing="false" onAction="#authorsButtonPressed" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #0095CB; -fx-border-color: #606060; -fx-border-width: 5; -fx-text-fill: #000000;" text="Autorzy">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Button>
+            <Button fx:id="exitButton" layoutX="1068.0" layoutY="638.0" mnemonicParsing="false" onAction="#exitButtonPressed" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #0095CB; -fx-border-color: #606060; -fx-border-width: 5; -fx-text-fill: #000000;" text="Wyjdź">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
