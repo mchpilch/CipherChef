@@ -18,10 +18,10 @@ public class Main extends Application {
 
     public static void main(String[] args) {
 
-        /*Monoalphabetic mono = new Monoalphabetic();
-        mono.setInput("kupa i troche gowna");
-        mono.encrypt();
-        System.out.println(mono.getOutput());*/
+        Monoalphabetic mono = new Monoalphabetic();
+        mono.setInput("Litwo Ojczyzno moja Ty jesteś jak zdrowie Ile cię stracił Dziś piękność twą w szlacheckim stanie trudno zaradzić wolał gości Żydom do nowej mody odsyłać konie porzucone same szczypiąc trawę ciągnęły powoli pod lasem zwaliska");
+        mono.decrypt();
+        mono.displayTextLettersFrequency();
 
         launch(args);
     }
