@@ -4,15 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Monoalphabetic extends EncryptionMethod{
-    /*
-    private char[][] replacement = { {'a', 'ą', 'b', 'c', 'ć', 'd', 'e', 'ę', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'ł', 'm', 'n', 'ń', 'o', 'ó', 'p', 'q', 'r', 's', 'ś', 't', 'u', 'w', 'x', 'y', 'z', 'ż', 'ź'},
-                                      {'h', 'i', 'j', 'k', 'l', 'ł', 'm', 'n', 'ń', 'o', 'ó', 'p', 'q', 'r', 's', 'ś', 't', 'u', 'v', 'w', 'x', 'z', 'ż', 'ź', 'a', 'ą', 'b', 'c', 'ć', 'd', 'e', 'ę', 'f', 'g'} }; //dla testów podstawiłem literki, potem się doda mechanizm wprowadzania wlasnych podstawien
-                                      //{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '} };
 
-    private double[] polishLetterFrequency = { 8.91, 0.99, 1.47, 3.96, 0.40, 3.25, 7.66, 1.11, 0.30, 1.42, 1.08, 8.21, 2.28, 3.51, 2.10, 1.82, 2.80, 5.52, 0.20, 7.75, 0.85, 3.13, 4.69, 4.32, 0.66, 3.98, 2.50, 4.65, 3.76, 5.64, 0.06, 0.83};
-    private double[] textLetterFrequency = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-
-     */
     private int textLettersCount = 0;
 
     Map<Character, Character> replacement = new HashMap<Character, Character>();
@@ -24,15 +16,58 @@ public class Monoalphabetic extends EncryptionMethod{
     }
 
     public Monoalphabetic() {
+        setPolishLetters();
         setDefaultReplacement();
     }
 
-    /*public double[] getTextLettersFrequency() {
-        return textLetters.;
-    }*/
-
     public void setInput(String input) {
         super.setInput(input.toLowerCase());
+    }
+
+    public void setReplacement( Map<Character,Character> replacement) {
+        this.replacement = replacement;
+    }
+
+    public void encrypt() {
+        char letter;
+        char[] text = getInput().toCharArray();
+        for(int i = 0; i < text.length; i++) {
+            letter = text[i];
+            text[i] = replacement.get(letter);
+        }
+
+        setOutput(new String(text));
+    }
+
+    public void decrypt() {
+        calculateTextLettersFrequency();
+    }
+
+    public void calculateTextLettersFrequency() {
+        calculateTextLettersCount();
+        for (Character letter : polishLetters.keySet()) { //pętla po każdej literce alfabetu
+            int letterCount = 0;
+            double freq = 0;
+            for (int i = 0; i < getInput().length(); i++) { //petla po każdej literce tekstu
+                if( letter == getInput().charAt(i)) {
+                    letterCount++;
+                }
+            }
+            freq = (double) letterCount/textLettersCount;
+            textLetters.put(letter, freq);
+        }
+    }
+
+    public void calculateTextLettersCount() {
+        for(int i = 0; i < getInput().length(); i++) {
+            if( getInput().charAt(i) != ' ' ) {
+                textLettersCount++;
+            }
+        }
+    }
+
+    public void displayTextLettersFrequency() {
+        System.out.print(textLetters);
     }
 
     public void setPolishLetters() {
@@ -73,10 +108,6 @@ public class Monoalphabetic extends EncryptionMethod{
         polishLetters.put('ż', 0.83);
     }
 
-    public void setReplacement( Map<Character,Character> replacement) {
-        this.replacement = replacement;
-    }
-
     public void setDefaultReplacement() {
         replacement.put('a', 'ą');
         replacement.put('ą', 'b');
@@ -114,37 +145,4 @@ public class Monoalphabetic extends EncryptionMethod{
         replacement.put('ź', 'ż');
         replacement.put('ż', 'a');
     }
-
-    public void encrypt() {
-        char letter;
-        char[] text = getInput().toCharArray();
-        for(int i = 0; i < text.length; i++) {
-            letter = text[i];
-            text[i] = replacement.get(letter);
-        }
-
-        setOutput(new String(text));
-    }
-
-    public void decrypt() {
-        //calculateTextLettersFrequency();
-    }
-
-    public void calculateTextLettersFrequency() {
-        calculateTextLettersCount();
-        // po przejsciu na mapy jedszcze nie napisałem tego
-    }
-
-    public void calculateTextLettersCount() {
-        for(int i = 0; i < getInput().length(); i++) {
-            if( getInput().charAt(i) != ' ' ) {
-                textLettersCount++;
-            }
-        }
-    }
-
-    public void displayTextLettersFrequency() {
-        System.out.print(textLetters);
-    }
-
 }
