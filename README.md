@@ -6,3 +6,6 @@ Some helpful stuff to config:
 https://ashley-tharp.medium.com/error-java-package-javafx-application-does-not-exist-ac6ce7aa18ba
 VM options:
 --module-path C:\Users\User\Desktop\Javafx\javafx-sdk-11.0.2\lib --add-modules javafx.fxml,javafx.controls,javafx.graphics
+
+Sources:
+https://www.geeksforgeeks.org/java-program-to-enode-a-message-using-playfair-cipher/
