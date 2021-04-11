@@ -27,13 +27,13 @@ public class Main extends Application {
         mono.displayTextLettersFrequency();
     */
 
-        /*
+/*
         Playfair playfair = new Playfair("wtorek", "marcin");
         playfair.displayMatrix();
-        launch(args);
-        */
+        launch(args);*/
 
-        Vigener vigener = new Vigener();
+
+        Vigener vigener = new Vigener("tajny tajny bee","klucz");
         vigener.displayMatrix();
         launch(args);
     }
