@@ -3,7 +3,7 @@ package Classes;
 public class Vigener extends EncryptionMethod {
     char[][] matrix = new char[26][26];
     String alphabet = "abcdefghijklmnopqrstuvwxyz";
-    String output = "";
+
 
 
     public Vigener(String plainText, String key) {
@@ -14,7 +14,7 @@ public class Vigener extends EncryptionMethod {
         super.setKey(keyAccurateLength.toLowerCase());
 
         generateMatrix();
-        encrypt();
+        super.setOutput(encrypt());
 
     }
 
@@ -48,7 +48,7 @@ public class Vigener extends EncryptionMethod {
 //            System.out.println("reszta "+ reszta);
 //            System.out.println("calosci "+ calosci);
             key = (key.repeat(calosci)+key.substring(0,reszta));
-            System.out.println(key);
+//            System.out.println(key);
             return key;
         }else{
             System.out.println("klucz ma wystarczającą długość");
@@ -56,8 +56,45 @@ public class Vigener extends EncryptionMethod {
         }
     }
 
-    public void encrypt() {
+    public String encrypt() {
+        System.out.println("getInput() " + getInput());
+        System.out.println("getKey() " + getKey());
+        String encryptedText = "";
 
+        char currentInputLetter;
+        char currentKeyLetter;
+        boolean wasCurrentInputLetterFound = false;
+        boolean wasCurrentKeyLetterFound = false;
+        int currentInputLetterIndex = 0;
+        int currentKeyLetterIndex = 0;
+
+        char currentLetterOfOutput;
+
+        for(int i = 0; i < getInput().length();i++){//kolejne literki w input'cie i kluczu
+            currentInputLetter = getInput().charAt(i) ;//wyszukuje litere w inpucie
+            currentKeyLetter = getKey().charAt(i);//wyszukuje litere w kluczu
+            for(int k = 0; k < matrix.length; k++){
+                if(currentInputLetter == matrix[0][k] && wasCurrentInputLetterFound == false){
+                    //System.out.println(currentInputLetter + " " + k);
+                    currentInputLetterIndex = k;
+                    wasCurrentInputLetterFound = true;
+                }
+                if(currentKeyLetter == matrix[0][k] && wasCurrentKeyLetterFound == false){
+                    //System.out.println(currentKeyLetter + " " + k);
+                    currentKeyLetterIndex = k;
+                    wasCurrentKeyLetterFound = true;
+                }
+                if((wasCurrentInputLetterFound && wasCurrentKeyLetterFound)){
+                    wasCurrentInputLetterFound = false;
+                    wasCurrentKeyLetterFound = false;
+                    break;
+                }
+            }
+            currentLetterOfOutput = (matrix[currentInputLetterIndex][currentKeyLetterIndex]);
+            encryptedText += currentLetterOfOutput;
+        }
+
+        return encryptedText;
     }
 
 }

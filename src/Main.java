@@ -33,8 +33,9 @@ public class Main extends Application {
         launch(args);*/
 
 
-        Vigener vigener = new Vigener("tajny tajny bee","klucz");
+        Vigener vigener = new Vigener("tajny tekst","klucz");
         vigener.displayMatrix();
+        System.out.println("getOutput() " + vigener.getOutput());
         launch(args);
     }
 }
