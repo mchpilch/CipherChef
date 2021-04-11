@@ -1,4 +1,5 @@
 import Classes.Playfair;
+import Classes.Vigener;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -25,8 +26,15 @@ public class Main extends Application {
         mono.decrypt();
         mono.displayTextLettersFrequency();
     */
+
+        /*
         Playfair playfair = new Playfair("wtorek", "marcin");
         playfair.displayMatrix();
+        launch(args);
+        */
+
+        Vigener vigener = new Vigener();
+        vigener.displayMatrix();
         launch(args);
     }
 }
