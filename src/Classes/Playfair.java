@@ -14,6 +14,9 @@ public class Playfair extends EncryptionMethod{
         generateMatrix();
     }
 
+    public Playfair() {
+    }
+
     public void encrypt() {
         String text = getInput();
         text = removeSpaces(text);
