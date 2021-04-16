@@ -22,6 +22,7 @@ public class Playfair extends EncryptionMethod{
         char charA, charB;
         int [] posA, posB;
         String encryptedText = "";
+
         for (int i = 0; i < pairs.length; i++) {
             charA = pairs[i].charAt(0);
             charB = pairs[i].charAt(1);
@@ -29,29 +30,39 @@ public class Playfair extends EncryptionMethod{
             posA = getPositionInMatrix(charA);
             posB = getPositionInMatrix(charB);
 
+            // obydwa znaki są takie same
+            if (charA == charB) {
+
+                posA[1] = Math.floorMod((posA[1] + 1), 5);
+                posA[0] = Math.floorMod((posA[0] + 1), 5);
+                posB = posA;
+            }
+
             // obydwie litery są w tym samym wierszu
-            if (posA[0] == posB[0]) {
+            else if (posA[0] == posB[0]) {
+
                 posA[1] = (posA[1] + 1) % 5;
                 posB[1] = (posB[1] + 1) % 5;
             }
 
             // obydwie litery są w tej samej kolumnie
-            else if (posA[1] == posB[1])
-            {
+            else if (posA[1] == posB[1]) {
+
                 posA[0] = (posA[0] + 1) % 5;
                 posB[0] = (posB[0] + 1) % 5;
             }
 
             // litery są w różnych kolumnach i wierszach
             else {
+
                 int temp = posA[1];
                 posA[1] = posB[1];
                 posB[1] = temp;
             }
 
             encryptedText = encryptedText + matrix[posA[0]][posA[1]] + matrix[posB[0]][posB[1]];
-
         }
+
         encryptedText = addSpaces(encryptedText);
         setOutput(encryptedText);
     }
@@ -71,21 +82,31 @@ public class Playfair extends EncryptionMethod{
             posA = getPositionInMatrix(charA);
             posB = getPositionInMatrix(charB);
 
+            // obydwa znaki są takie same
+            if (charA == charB) {
+
+                posA[1] = Math.floorMod((posA[1] - 1) , 5);
+                posA[0] = Math.floorMod((posA[0] - 1) , 5);
+                posB = posA;
+            }
+
             // obydwie litery są w tym samym wierszu
-            if (posA[0] == posB[0]) {
+            else if (posA[0] == posB[0]) {
+
                 posA[1] = Math.floorMod((posA[1] - 1) , 5);
                 posB[1] = Math.floorMod((posB[1] - 1) , 5);
             }
 
             // obydwie litery są w tej samej kolumnie
-            else if (posA[1] == posB[1])
-            {
+            else if (posA[1] == posB[1]) {
+
                 posA[0] = Math.floorMod((posA[0] - 1) , 5);
                 posB[0] = Math.floorMod((posB[0] - 1) , 5);
             }
 
             // litery są w różnych kolumnach i wierszach
             else {
+
                 int temp = posA[1];
                 posA[1] = posB[1];
                 posB[1] = temp;
@@ -165,6 +186,10 @@ public class Playfair extends EncryptionMethod{
     // funkcja grupująca teks w pary
     public String[] formPairs(String message) {
         int len = message.length();
+
+        if (len % 2 != 0) message += 'x';
+
+        len = message.length();
         String[] pairs = new String[len / 2];
 
         for (int i = 0, cnt = 0; i < len / 2; i++)
