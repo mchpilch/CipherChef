@@ -28,9 +28,12 @@ public class Main extends Application {
     */
 
 
-        Playfair playfair = new Playfair("niedziela wieczur i humor gituwa", "marcin");
+        Playfair playfair = new Playfair("jebac telewizje polska jacek kurski chuj ci w dziaslo", "marcin");
+        //Playfair playfair = new Playfair("cfhbe yltbyficf ugkthr mrelt tsixsm ioqm ia z fxmrtkkz", "marcin");
         playfair.displayMatrix();
+        //playfair.decrypt();
         playfair.encrypt();
+        System.out.print(playfair.getOutput());
 
 /*
         Vigener vigener = new Vigener("tajny tekst","klucz");
