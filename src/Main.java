@@ -31,16 +31,22 @@ public class Main extends Application {
         playfair.encrypt();
         System.out.print(playfair.getOutput());
 
-
+*/
         Vigener vigener = new Vigener("tajny tekst","klucz");
         vigener.displayMatrix();
         System.out.println("getOutput() " + vigener.getOutput());
+<<<<<<< HEAD
         //launch(args);
 
         MorseCode morseCode = new MorseCode("sos");
         System.out.println("getOutput() " + morseCode.getOutput());
 
         */
+=======
+
+        MorseCode morseCode = new MorseCode("sos pik pik wiadomosc");
+        System.out.println("getOutput() " + morseCode.getOutput());
+>>>>>>> f1c67bc12c23b4b19ee9d3158a1afab3ee243a9e
 
 
         launch(args);
