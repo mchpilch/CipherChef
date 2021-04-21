@@ -1,12 +1,9 @@
-import Classes.Playfair;
-import Classes.Vigener;
+import Classes.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import Classes.EncryptionMethod;
-import Classes.Monoalphabetic;
 
 public class Main extends Application {
 
@@ -34,11 +31,13 @@ public class Main extends Application {
         playfair.encrypt();
         System.out.print(playfair.getOutput());
 
-
+*/
         Vigener vigener = new Vigener("tajny tekst","klucz");
         vigener.displayMatrix();
         System.out.println("getOutput() " + vigener.getOutput());
-        */
+
+        MorseCode morseCode = new MorseCode("sos pik pik wiadomosc");
+        System.out.println("getOutput() " + morseCode.getOutput());
 
 
         launch(args);
