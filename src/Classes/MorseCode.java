@@ -45,11 +45,10 @@ public class MorseCode extends EncryptionMethod{
         letterToMorse.put('x', "—••—");
         letterToMorse.put('y', "—•——");
         letterToMorse.put('z', "——••");
-<<<<<<< HEAD
-=======
+
 
         letterToMorse.put(' ', "   ");
->>>>>>> f1c67bc12c23b4b19ee9d3158a1afab3ee243a9e
+
     }
 
     public String encrypt(){
