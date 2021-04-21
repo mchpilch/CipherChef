@@ -11,7 +11,7 @@ public class MorseCode extends EncryptionMethod{
 
     public MorseCode(String plainText) {
         setLetterToMorse();
-        //System.out.println(letterToMorse);
+        System.out.println("przypisanie " + letterToMorse);
         super.setInput(plainText.toLowerCase());
         super.setOutput(encrypt());
 

@@ -1,12 +1,9 @@
-import Classes.Playfair;
-import Classes.Vigener;
+import Classes.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import Classes.EncryptionMethod;
-import Classes.Monoalphabetic;
 
 public class Main extends Application {
 
@@ -36,6 +33,10 @@ public class Main extends Application {
         Vigener vigener = new Vigener("tajny tekst","klucz");
         vigener.displayMatrix();
         System.out.println("getOutput() " + vigener.getOutput());
-        launch(args);
+        //launch(args);
+
+        MorseCode morseCode = new MorseCode("sos");
+        System.out.println("getOutput() " + morseCode.getOutput());
+
     }
 }
