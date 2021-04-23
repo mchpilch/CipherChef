@@ -39,10 +39,12 @@ public class Main extends Application {
         //launch(args);
         
 
-        MorseCode morseCode = new MorseCode("sos pik pik wiadomosc");
+        //MorseCode morseCode = new MorseCode("sos pik pik wiadomosc");
+        MorseCode morseCode = new MorseCode("... --- ... ... .- - . -.- .-. --- --.. -... .. - -.-- .--. .-. --.. -.-- -.- .- .-. .- .. -... .- -.-. .... ... --- ... ");
+
         System.out.println("getOutput() " + morseCode.getOutput());
 
 
-        launch(args);
+        //launch(args);
     }
 }
