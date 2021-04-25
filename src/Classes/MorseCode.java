@@ -14,12 +14,7 @@ public class MorseCode extends EncryptionMethod{
     public MorseCode(String plainText) {
         setLetterToMorse();
         setMorseToLetter();
-        System.out.println("przypisanie " + letterToMorse);
-        super.setInput(plainText.toLowerCase());
-        //super.setOutput(encrypt());
-        super.setOutput(decrypt());
-
-
+        setInput(plainText.toLowerCase());
     }
 
     public void setLetterToMorse() {// . -
@@ -73,9 +68,7 @@ public class MorseCode extends EncryptionMethod{
 
         letterToMorse.put(' ', "/");
     }
-    //Each dot or dash within a character is followed by a period of signal absence, called a space, equal to the dot duration.
-    // The letters of a word are separated by a space of duration equal to three dots,
-    // and words are separated by a space equal to seven dots.[1]
+
     public void setMorseToLetter() {// . -
         morseToLetter.put(".-",'a');
         morseToLetter.put("-...",'b');
@@ -119,16 +112,16 @@ public class MorseCode extends EncryptionMethod{
         //morseToLetter.put(" ", ' ');
         morseToLetter.put("/", ' ');
     }
-    public String encrypt(){
+    public void encrypt(){
         String encryptedInMorse = "";
         for(int i = 0; i < getInput().length();i++){
             String currentSign = letterToMorse.get(getInput().charAt(i));//getinput to teskt do zaszyfrowania
             encryptedInMorse += currentSign + " ";
         }
-        return encryptedInMorse;
+        setOutput(encryptedInMorse);
     };
 
-    public String decrypt(){//litery w kodzie morsa odseparowuje sie spacjami a slowa "/"
+    public void decrypt(){//litery w kodzie morsa odseparowuje sie spacjami a slowa "/"
         String decrypted = "";
         String messageInMorseWithSpaces = getInput()+" ";//dodanie jednej spacji pozwala na działanie prostszego algorytmu w petli potem
         ArrayList<String> morseCodeMessage = new ArrayList<String>();
@@ -143,7 +136,7 @@ public class MorseCode extends EncryptionMethod{
             }
             //System.out.println("i " + i + " letter " + letter + " " + morseCodeMessage);//sprawdzanie
         }
-        System.out.println(morseCodeMessage);//sprawdzanie
+        //System.out.println(morseCodeMessage);//sprawdzanie
         int counter = 0;
         while(counter < morseCodeMessage.size()){
             if(morseCodeMessage.get(counter) == ""){
@@ -152,7 +145,7 @@ public class MorseCode extends EncryptionMethod{
                 counter++;
             }
         }
-        System.out.println(morseCodeMessage);//sprawdzanie
+        //System.out.println(morseCodeMessage);//sprawdzanie
 
         for(int i = 0; i < morseCodeMessage.size();i++){//porwnuje przechowywane ciagi z arraylisty do mapy i zamieniam na normalna wiadomosc
                 String cellContent = morseCodeMessage.get(i);
@@ -160,7 +153,7 @@ public class MorseCode extends EncryptionMethod{
                 decrypted += a;
 
         }
-        return decrypted;
+        setOutput(decrypted);
     }
 
 

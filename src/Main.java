@@ -24,24 +24,25 @@ public class Main extends Application {
         mono.displayTextLettersFrequency();
 
 
-        Playfair playfair = new Playfair("jebac telewizje polska jacek kurski chuj ci w dziaslo", "marcin");
-        //Playfair playfair = new Playfair("cfhbe yltbyficf ugkthr mrelt tsixsm ioqm ia z fxmrtkkZ", "marcin");
-        //playfair.displayMatrix();
-        //playfair.decrypt();
-        playfair.encrypt();
-        System.out.print(playfair.getOutput());
 
+        //Playfair playfair = new Playfair("jebac telewizje polska jacek kurski chuj ci w dziaslo", "marcin");
+        Playfair playfair = new Playfair("cfhbe yltbyficf ugkthr mrelt tsixsm ioqm ia z fxmrtkkZ", "marcin");
+        //playfair.displayMatrix();
+        playfair.decrypt();
+        //playfair.encrypt();
+        System.out.print(playfair.getOutput());
 */
-        Vigener vigener = new Vigener("tajny tekst","klucz");
-        vigener.displayMatrix();
-        System.out.println("getOutput() " + vigener.getOutput());
+//        Vigener vigener = new Vigener("tajny tekst","klucz");
+//        vigener.displayMatrix();
+//        System.out.println("getOutput() " + vigener.getOutput());
 
         //launch(args);
         
-
-        //MorseCode morseCode = new MorseCode("sos jednostka uszkodzona N 21 5 W 78 7 niedaleko Karaibów  sos");
-        MorseCode morseCode = new MorseCode("... --- ... / .--- . -.. -. --- ... - -.- .- / ..- ... --.. -.- --- -.. --.. --- -. .- / -. / ..--- .---- / ..... / .-- / --... ---.. / --... / -. .. . -.. .- .-.. . -.- --- / -.- .- .-. .- .. -... --- .-- / / ... --- ... ");
-
+/**/
+        MorseCode morseCode = new MorseCode("sos jednostka uszkodzona N 21 5 W 78 7 niedaleko Karaibów  sos");
+        morseCode.encrypt();
+//        MorseCode morseCode = new MorseCode("... --- ... / .--- . -.. -. --- ... - -.- .- / ..- ... --.. -.- --- -.. --.. --- -. .- / -. / ..--- .---- / ..... / .-- / --... ---.. / --... / -. .. . -.. .- .-.. . -.- --- / -.- .- .-. .- .. -... --- .-- / / ... --- ... ");
+//        morseCode.decrypt();
         System.out.println("getOutput() " + morseCode.getOutput());
 
 
