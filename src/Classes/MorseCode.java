@@ -16,7 +16,7 @@ public class MorseCode extends EncryptionMethod{
         setMorseToLetter();
         System.out.println("przypisanie " + letterToMorse);
         super.setInput(plainText.toLowerCase());
-//        super.setOutput(encrypt());
+        //super.setOutput(encrypt());
         super.setOutput(decrypt());
 
 
@@ -24,10 +24,13 @@ public class MorseCode extends EncryptionMethod{
 
     public void setLetterToMorse() {// . -
         letterToMorse.put('a', ".-");
+        letterToMorse.put('ą', ".-");
         letterToMorse.put('b', "-...");
         letterToMorse.put('c', "-.-.");
+        letterToMorse.put('ć', "-.-.");
         letterToMorse.put('d', "-..");
         letterToMorse.put('e', ".");
+        letterToMorse.put('ę', ".");
         letterToMorse.put('f', "..-.");
         letterToMorse.put('g', "--.");
         letterToMorse.put('h', "....");
@@ -35,13 +38,17 @@ public class MorseCode extends EncryptionMethod{
         letterToMorse.put('j', ".---");
         letterToMorse.put('k', "-.-");
         letterToMorse.put('l', ".-..");
+        letterToMorse.put('ł', ".-..");
         letterToMorse.put('m', "--");
         letterToMorse.put('n', "-.");
+        letterToMorse.put('ń', "-.");
         letterToMorse.put('o', "---");
+        letterToMorse.put('ó', "---");
         letterToMorse.put('p', ".--.");
         letterToMorse.put('q', "--.-");
         letterToMorse.put('r', ".-.");
         letterToMorse.put('s', "...");
+        letterToMorse.put('ś', "...");
         letterToMorse.put('t', "-");
         letterToMorse.put('u', "..-");
         letterToMorse.put('v', "...-");
@@ -49,9 +56,22 @@ public class MorseCode extends EncryptionMethod{
         letterToMorse.put('x', "-..-");
         letterToMorse.put('y', "-.--");
         letterToMorse.put('z', "--..");
+        letterToMorse.put('ź', "--..");
+        letterToMorse.put('ż', "--..");
+
+        letterToMorse.put('1', ".----");
+        letterToMorse.put('2', "..---");
+        letterToMorse.put('3', "...--");
+        letterToMorse.put('4', "....-");
+        letterToMorse.put('5', ".....");
+        letterToMorse.put('6', "-....");
+        letterToMorse.put('7', "--...");
+        letterToMorse.put('8', "---..");
+        letterToMorse.put('9', "----.");
+        letterToMorse.put('0', "-----");
 
 
-        letterToMorse.put(' ', "   ");
+        letterToMorse.put(' ', "/");
     }
     //Each dot or dash within a character is followed by a period of signal absence, called a space, equal to the dot duration.
     // The letters of a word are separated by a space of duration equal to three dots,
@@ -84,14 +104,26 @@ public class MorseCode extends EncryptionMethod{
         morseToLetter.put("-.--",'y');
         morseToLetter.put("--..",'z');
 
+        morseToLetter.put(".----",'1');
+        morseToLetter.put("..---",'2');
+        morseToLetter.put("...--",'3');
+        morseToLetter.put("....-",'4');
+        morseToLetter.put(".....",'5');
+        morseToLetter.put("-....",'6');
+        morseToLetter.put("--...",'7');
+        morseToLetter.put("---..",'8');
+        morseToLetter.put("----.",'9');
+        morseToLetter.put("-----",'0');
 
-        morseToLetter.put(" ", ' ');
+
+        //morseToLetter.put(" ", ' ');
+        morseToLetter.put("/", ' ');
     }
     public String encrypt(){
         String encryptedInMorse = "";
         for(int i = 0; i < getInput().length();i++){
             String currentSign = letterToMorse.get(getInput().charAt(i));//getinput to teskt do zaszyfrowania
-            encryptedInMorse += currentSign;
+            encryptedInMorse += currentSign + " ";
         }
         return encryptedInMorse;
     };

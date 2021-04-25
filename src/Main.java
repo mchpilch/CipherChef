@@ -39,8 +39,8 @@ public class Main extends Application {
         //launch(args);
         
 
-        //MorseCode morseCode = new MorseCode("sos pik pik wiadomosc");
-        MorseCode morseCode = new MorseCode("... --- ... ... .- - . -.- .-. --- --.. -... .. - -.-- .--. .-. --.. -.-- -.- .- .-. .- .. -... .- -.-. .... ... --- ... ");
+        //MorseCode morseCode = new MorseCode("sos jednostka uszkodzona N 21 5 W 78 7 niedaleko Karaibów  sos");
+        MorseCode morseCode = new MorseCode("... --- ... / .--- . -.. -. --- ... - -.- .- / ..- ... --.. -.- --- -.. --.. --- -. .- / -. / ..--- .---- / ..... / .-- / --... ---.. / --... / -. .. . -.. .- .-.. . -.- --- / -.- .- .-. .- .. -... --- .-- / / ... --- ... ");
 
         System.out.println("getOutput() " + morseCode.getOutput());
 
