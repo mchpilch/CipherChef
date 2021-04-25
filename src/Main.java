@@ -32,19 +32,23 @@ public class Main extends Application {
         //playfair.encrypt();
         System.out.print(playfair.getOutput());
 */
-//        Vigener vigener = new Vigener("tajny tekst","klucz");
+        //Vigener vigener = new Vigener("tajny tekst","klucz");
+//        Vigener vigener = new Vigener("ATTACKATDAWN","lemon");
+//        vigener.encrypt();
+        //Vigener vigener = new Vigener("dldpxdpeus","klucz");
+        //Vigener vigener = new Vigener("LXFOPVEFRNHR","LEMONLEMONLE");
 //        vigener.displayMatrix();
-//        System.out.println("getOutput() " + vigener.getOutput());
+        //vigener.decrypt();
 
+//        System.out.println("getOutput() " + vigener.getOutput());
         //launch(args);
-        
-/**/
+/*
         MorseCode morseCode = new MorseCode("sos jednostka uszkodzona N 21 5 W 78 7 niedaleko Karaibów  sos");
         morseCode.encrypt();
 //        MorseCode morseCode = new MorseCode("... --- ... / .--- . -.. -. --- ... - -.- .- / ..- ... --.. -.- --- -.. --.. --- -. .- / -. / ..--- .---- / ..... / .-- / --... ---.. / --... / -. .. . -.. .- .-.. . -.- --- / -.- .- .-. .- .. -... --- .-- / / ... --- ... ");
 //        morseCode.decrypt();
         System.out.println("getOutput() " + morseCode.getOutput());
-
+*/
 
         //launch(args);
     }
