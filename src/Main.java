@@ -50,6 +50,6 @@ public class Main extends Application {
         System.out.println("getOutput() " + morseCode.getOutput());
 */
 
-        //launch(args);
+        launch(args);
     }
 }

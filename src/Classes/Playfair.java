@@ -233,5 +233,12 @@ public class Playfair extends EncryptionMethod{
         }
     }
 
+    public char[][] getMatrix() {
+        return matrix;
+    }
 
+    public void setKey(String key) {
+        super.setKey(key);
+        generateMatrix();
+    }
 }

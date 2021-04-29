@@ -1,5 +1,4 @@
 import Classes.EncryptionMethod;
-import Classes.Monoalphabetic;
 import Classes.Playfair;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -37,7 +36,7 @@ public class ChooseEncryptionMethodController {
     }
 
     public void chooseEncryptionMethodComboBoxOnAction(ActionEvent actionEvent) throws IOException {
-        Parent newRoot = FXMLLoader.load(getClass().getResource("FXMLFiles/PlayfairInterface.fxml"));
+        Parent newRoot = FXMLLoader.load(getClass().getResource("FXMLFiles/PlayfairEncryptionInterface.fxml"));
 
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         stageTheEventSourceNodeBelongs.setScene(new Scene(newRoot));
