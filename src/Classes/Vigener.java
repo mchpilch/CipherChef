@@ -5,16 +5,14 @@ public class Vigener extends EncryptionMethod {
     String alphabet = "abcdefghijklmnopqrstuvwxyz";
 
 
-
     public Vigener(String plainText, String key) {
         String plainTextNoSpaceces = plainText.replaceAll("\\s+","");//usuwa spacje itp.
-        super.setInput(plainTextNoSpaceces.toLowerCase());
+        setInput(plainTextNoSpaceces.toLowerCase());
 
         String keyAccurateLength = matchKeyLength(plainTextNoSpaceces,key);//zwraca nowy klucz o odpowiedniej długości
-        super.setKey(keyAccurateLength.toLowerCase());
+        setKey(keyAccurateLength.toLowerCase());
 
         generateMatrix();
-        super.setOutput(encrypt());
 
     }
 
@@ -51,12 +49,12 @@ public class Vigener extends EncryptionMethod {
 //            System.out.println(key);
             return key;
         }else{
-            System.out.println("klucz ma wystarczającą długość");
+            //System.out.println("klucz ma wystarczającą długość");
             return key;
         }
     }
 
-    public String encrypt() {
+    public void encrypt() {
         System.out.println("getInput() " + getInput());
         System.out.println("getKey() " + getKey());
         String encryptedText = "";
@@ -75,12 +73,10 @@ public class Vigener extends EncryptionMethod {
             currentKeyLetter = getKey().charAt(i);//wyszukuje litere w kluczu
             for(int k = 0; k < matrix.length; k++){
                 if(currentInputLetter == matrix[0][k] && wasCurrentInputLetterFound == false){
-                    //System.out.println(currentInputLetter + " " + k);
                     currentInputLetterIndex = k;
                     wasCurrentInputLetterFound = true;
                 }
-                if(currentKeyLetter == matrix[0][k] && wasCurrentKeyLetterFound == false){
-                    //System.out.println(currentKeyLetter + " " + k);
+                if(currentKeyLetter == matrix[k][0] && wasCurrentKeyLetterFound == false){//na dobra sprawe mogloby byc currentInputLetter == matrix[0][k] bo to jest symetryczne
                     currentKeyLetterIndex = k;
                     wasCurrentKeyLetterFound = true;
                 }
@@ -94,7 +90,43 @@ public class Vigener extends EncryptionMethod {
             encryptedText += currentLetterOfOutput;
         }
 
-        return encryptedText;
+        setOutput(encryptedText);
     }
+    // w macierzy [wybor rzedu][wybor kolumny]
+    public void decrypt(){
+        System.out.println("getInput() " + getInput());
+        System.out.println("getKey() " + getKey());
+        String decryptedText = "";
 
+        char currentInputLetter;
+        char currentKeyLetter;
+        boolean wasCurrentKeyLetterFound = false;
+        int currentInputLetterIndex = 0;
+        int currentKeyLetterIndex = 0;
+
+        char currentLetterOfOutput;
+
+        for(int i = 0; i < getKey().length();i++){//kolejne literki w input'cie i kluczu
+            currentKeyLetter = getKey().charAt(i);//wyszukuje litere w kluczu
+            currentInputLetter = getInput().charAt(i) ;//wyszukuje litere w inpucie
+            for(int n = 0; n < matrix.length; n++){
+                if(currentKeyLetter == matrix[n][0] && wasCurrentKeyLetterFound == false){
+                    currentKeyLetterIndex = n;
+                    wasCurrentKeyLetterFound = true;
+                }//znalazłem w macierzy litere klucza teraz szukam litery szyfrogramu w linii litery klucza
+                if(wasCurrentKeyLetterFound == true){
+                    for(int j = 0; j < matrix.length; j++){
+                        if(currentInputLetter == matrix[currentKeyLetterIndex][j]){
+                            currentInputLetterIndex = j;
+                            wasCurrentKeyLetterFound = false;
+                            break;
+                        }
+                    }
+                }
+            }
+        currentLetterOfOutput = (matrix[0][currentInputLetterIndex]);
+        decryptedText += currentLetterOfOutput;
+        }
+    setOutput(decryptedText);
+    }
 }
