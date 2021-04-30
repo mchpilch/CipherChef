@@ -15,6 +15,7 @@ public class Playfair extends EncryptionMethod{
     }
 
     public Playfair() {
+        super.setName("Playfair");
     }
 
     public void encrypt() {

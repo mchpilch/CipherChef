@@ -11,13 +11,14 @@ public class Monoalphabetic extends EncryptionMethod{
     Map<Character, Double> polishLetters = new HashMap<Character, Double>();
     Map<Character, Double> textLetters = new HashMap<Character, Double>();
 
-    public Monoalphabetic(String input, String output, String key) {
+    /*public Monoalphabetic(String input, String output, String key) {
         super(input, output, key);
-    }
+    }*/
 
     public Monoalphabetic() {
         setPolishLetters();
         setDefaultReplacement();
+        super.setName("Monoalphabetic");
     }
 
     public void setInput(String input) {
@@ -144,5 +145,9 @@ public class Monoalphabetic extends EncryptionMethod{
         replacement.put('z', 'ź');
         replacement.put('ź', 'ż');
         replacement.put('ż', 'a');
+    }
+
+    public int getPolishLettersCount() {
+        return polishLetters.size();
     }
 }

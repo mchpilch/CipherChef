@@ -15,22 +15,22 @@
                   <Font name="System Bold" size="96.0" />
                </font>
             </Label>
-            <Button fx:id="encryptionButton" alignment="CENTER" layoutX="424.0" layoutY="296.0" mnemonicParsing="false" onAction="#encryptionButtonPressed" prefHeight="125.0" prefWidth="412.0" style="-fx-background-color: #0095CB; -fx-border-color: #606060; -fx-border-width: 5; -fx-text-fill: #000000;" text="SZYFROWANIE" textAlignment="CENTER">
+            <Button fx:id="encryptionButton" alignment="CENTER" layoutX="424.0" layoutY="296.0" mnemonicParsing="false" onAction="#encryptionButtonPressed" prefHeight="125.0" prefWidth="412.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 5; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="SZYFROWANIE" textAlignment="CENTER">
                <font>
                   <Font size="36.0" />
                </font>
             </Button>
-            <Button fx:id="decryptionButton" alignment="CENTER" layoutX="424.0" layoutY="465.0" mnemonicParsing="false" onAction="#decryptionButtonPressed" prefHeight="125.0" prefWidth="412.0" style="-fx-background-color: #0095CB; -fx-border-color: #606060; -fx-border-width: 5; -fx-text-fill: #000000;" text="DESZYFROWANIE" textAlignment="CENTER">
+            <Button fx:id="decryptionButton" alignment="CENTER" layoutX="424.0" layoutY="465.0" mnemonicParsing="false" onAction="#decryptionButtonPressed" prefHeight="125.0" prefWidth="412.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 5; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="DESZYFROWANIE" textAlignment="CENTER">
                <font>
                   <Font size="36.0" />
                </font>
             </Button>
-            <Button fx:id="authorsButton" layoutX="14.0" layoutY="638.0" mnemonicParsing="false" onAction="#authorsButtonPressed" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #0095CB; -fx-border-color: #606060; -fx-border-width: 5; -fx-text-fill: #000000;" text="Autorzy">
+            <Button fx:id="authorsButton" layoutX="14.0" layoutY="638.0" mnemonicParsing="false" onAction="#authorsButtonPressed" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 5; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="Autorzy">
                <font>
                   <Font size="22.0" />
                </font>
             </Button>
-            <Button fx:id="exitButton" layoutX="1068.0" layoutY="638.0" mnemonicParsing="false" onAction="#exitButtonPressed" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #0095CB; -fx-border-color: #606060; -fx-border-width: 5; -fx-text-fill: #000000;" text="Wyjdź">
+            <Button fx:id="exitButton" layoutX="1068.0" layoutY="638.0" mnemonicParsing="false" onAction="#exitButtonPressed" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 5; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="Wyjdź">
                <font>
                   <Font size="22.0" />
                </font>

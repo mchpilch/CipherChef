@@ -4,11 +4,13 @@ public class EncryptionMethod {
     private String input;
     private String output;
     private String key;
+    private String name;
 
-    public EncryptionMethod(String input, String output, String key) {
+    public EncryptionMethod(String input, String output, String key, String name) {
         this.input = input;
         this.output = output;
         this.key = key;
+        this.name = name;
     }
 
     public EncryptionMethod() {
@@ -26,6 +28,10 @@ public class EncryptionMethod {
         return key;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void setInput(String input) {
         this.input = input;
     }
@@ -36,6 +42,10 @@ public class EncryptionMethod {
 
     public void setKey(String key) {
         this.key = key;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void displayOutput() {}
