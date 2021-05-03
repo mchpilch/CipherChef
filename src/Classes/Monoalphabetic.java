@@ -150,4 +150,8 @@ public class Monoalphabetic extends EncryptionMethod{
     public int getPolishLettersCount() {
         return polishLetters.size();
     }
+
+    public Map<Character, Character> getReplacement() {
+        return replacement;
+    }
 }

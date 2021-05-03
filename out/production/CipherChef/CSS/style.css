@@ -1,0 +1,20 @@
+.combo-box{
+    -fx-font: 16px "Arial";
+    -fx-background-color: #373737;
+}
+
+.combo-box .cell {
+    -fx-text-fill: #0095CB;
+}
+
+.combo-box .list-view {
+    -fx-border-color: #0095CB;
+    -fx-background-color: #373737;
+    -fx-text-fill: #0095CB;
+}
+
+.separator *.line {
+    -fx-border-style: solid;
+    -fx-border-width: 1px;
+    -fx-border-color: #0095CB;
+}
