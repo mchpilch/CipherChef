@@ -34,7 +34,7 @@ public class Monoalphabetic extends EncryptionMethod{
         char[] text = getInput().toCharArray();
         for(int i = 0; i < text.length; i++) {
             letter = text[i];
-            text[i] = replacement.get(letter);
+            if (text[i] != ' ') text[i] = replacement.get(letter);
         }
 
         setOutput(new String(text));

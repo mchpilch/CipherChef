@@ -30,7 +30,7 @@
                   <Font size="22.0" />
                </font>
             </Button>
-            <Button fx:id="saveButton" layoutX="437.0" layoutY="630.0" mnemonicParsing="false" onAction="#saveButtonPressed" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 5; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="Zapisz">
+            <Button fx:id="saveButton" layoutX="434.0" layoutY="628.0" mnemonicParsing="false" onAction="#saveButtonPressed" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 5; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="Zapisz">
                <font>
                   <Font size="22.0" />
                </font>

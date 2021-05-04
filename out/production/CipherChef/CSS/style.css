@@ -10,7 +10,7 @@
 .combo-box .list-view {
     -fx-border-color: #0095CB;
     -fx-background-color: #373737;
-    -fx-text-fill: #0095CB;
+    -fx-text-fill: RED;
 }
 
 .separator *.line {

@@ -1,4 +1,7 @@
 import Classes.Monoalphabetic;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
@@ -14,6 +18,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 //import java.awt.*;
 import java.io.IOException;
@@ -25,12 +30,20 @@ public class MonoalphabeticEncryptionInterfaceController {
     @FXML
     private GridPane replacementGridPane;
 
+    @FXML
+    private TextArea plainTextTextArea;
+
+    @FXML
+    private TextArea encryptedTextTextArea;
+
     private StackPane gridStackPane[][];
     private Monoalphabetic monoalphabetic;
     int lettersCount;
     Map<Label, ComboBox> replacement;
     private Label[] polishLetterLabel;
     private ComboBox[] replacementLetterComboBox;
+    Timeline timeline;
+    //private boolean modification;
 
     public MonoalphabeticEncryptionInterfaceController() {
         monoalphabetic = new Monoalphabetic();
@@ -53,7 +66,16 @@ public class MonoalphabeticEncryptionInterfaceController {
 
     @FXML
     void initialize() {
+        timeline = new Timeline(
+                new KeyFrame(Duration.seconds(0.2), e -> {  // <----- Wątek
+                    refresh();
+                })
+        );
+
         initializeGridPane();
+
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
     }
 
     private void initializeGridPane() {
@@ -107,9 +129,38 @@ public class MonoalphabeticEncryptionInterfaceController {
             polishLetterLabel[index].setFont(new Font("Arial", 16));
             polishLetterLabel[index].setTextFill(Color.valueOf("#0095cb"));
 
-            replacementLetterComboBox[index].getSelectionModel().select(monoalphabetic.getReplacement().get(letter));
+            //replacementLetterComboBox[index].getItems().addAll(monoalphabetic.getReplacement().values());
+            //replacementLetterComboBox[index].getSelectionModel().select(monoalphabetic.getReplacement().get(letter));
+            //replacementLetterComboBox[index].getItems().add(monoalphabetic.getReplacement().get(letter));
+            replacementLetterComboBox[index].setValue(monoalphabetic.getReplacement().get(letter));
+            replacementLetterComboBox[index].getItems().add(new Character('-'));
 
             index++;
+        }
+    }
+
+    private void refresh() {
+        Character oldChar, newChar;
+        for( int i = 0; i < lettersCount; i++) {
+            oldChar = monoalphabetic.getReplacement().get(polishLetterLabel[i].getText().charAt(0));
+            newChar = (Character) replacementLetterComboBox[i].getValue();
+
+            if(oldChar != newChar) {
+                monoalphabetic.getReplacement().replace(polishLetterLabel[i].getText().charAt(0), newChar);
+                for (int j = 0; j < lettersCount; j++) {
+                    replacementLetterComboBox[j].getItems().remove(newChar);
+                    replacementLetterComboBox[j].getItems().add(oldChar);
+                }
+                //replacementLetterComboBox[i].getItems().add(newChar);
+                replacementLetterComboBox[i].setValue(newChar);
+                //replacementLetterComboBox[i].getItems().remove(newChar);
+
+                System.out.println("Różne");
+                System.out.println(oldChar);
+                System.out.println(newChar);
+                System.out.println(replacementLetterComboBox[i].getValue());
+                System.out.println("--------");
+            }
         }
     }
 
@@ -121,6 +172,9 @@ public class MonoalphabeticEncryptionInterfaceController {
     }
 
     public void encryptButtonPressed(ActionEvent actionEvent) {
+        monoalphabetic.setInput(plainTextTextArea.getText());
+        monoalphabetic.encrypt();
+        encryptedTextTextArea.setText(monoalphabetic.getOutput());
     }
 
     public void saveButtonPressed(ActionEvent actionEvent) {
