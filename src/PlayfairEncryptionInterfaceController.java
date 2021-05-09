@@ -16,8 +16,11 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class PlayfairEncryptionInterfaceController {
@@ -117,5 +120,22 @@ public class PlayfairEncryptionInterfaceController {
     }
 
     public void saveButtonPressed(ActionEvent actionEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save Image");
+        //System.out.println(playfair.getOutput());
+        fileChooser.setInitialDirectory(
+                new File(System.getProperty("user.home"))
+        );
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("pliki TXT", "*.txt"));
+        File file = fileChooser.showSaveDialog(new Stage());
+        if (file != null) {
+            try {
+                FileWriter myWriter = new FileWriter(file.getName());
+                myWriter.write(playfair.getOutput());
+                myWriter.close();
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
     }
 }
