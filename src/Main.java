@@ -49,6 +49,12 @@ public class Main extends Application {
 //        morseCode.decrypt();
         System.out.println("getOutput() " + morseCode.getOutput());
 */
+        Homophonic homophonic = new Homophonic();
+        //homophonic.setInput("dziala");
+        //homophonic.encrypt();
+        homophonic.setInput("166126103210");
+        homophonic.decrypt();
+        System.out.println(homophonic.getOutput());
 
         launch(args);
     }
