@@ -1,4 +1,5 @@
 import Classes.EncryptionMethod;
+import Classes.Homophonic;
 import Classes.Monoalphabetic;
 import Classes.Playfair;
 import javafx.event.ActionEvent;
@@ -23,6 +24,7 @@ public class ChooseEncryptionMethodController {
     public ChooseEncryptionMethodController() {
         encryptionMethods.add(new Monoalphabetic());
         encryptionMethods.add(new Playfair());
+        encryptionMethods.add(new Homophonic());
     }
 
     @FXML

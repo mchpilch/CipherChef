@@ -15,6 +15,7 @@ public class Homophonic extends EncryptionMethod {
         constructReplacementMap();
         setDefaultReplacement();
         displayReplacement();
+        super.setName("Homophonic");
     }
 
     private void constructReplacementMap() { //konstuujemy mapę z 26 znakami i list dla każdego znaku
@@ -81,6 +82,10 @@ public class Homophonic extends EncryptionMethod {
 
     public void setInput(String input) {
         super.setInput(input.toLowerCase());
+    }
+
+    public int getLetterCount() {
+        return replacementMap.size();
     }
 
 }
