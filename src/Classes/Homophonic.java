@@ -1,9 +1,6 @@
 package Classes;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class Homophonic extends EncryptionMethod {
 
@@ -87,5 +84,26 @@ public class Homophonic extends EncryptionMethod {
     public int getLetterCount() {
         return replacementMap.size();
     }
+
+    public Object[] getLetters() {
+        return replacementMap.keySet().toArray();
+    }
+
+    public String getReplacement(char letter) {
+        return replacementMap.get(letter).toString();
+    }
+
+    public void setReplacement(String string) {
+        String[] newString = string.split(",");
+        for (String a : newString) {
+            if (a.contains("[")) {
+                a.replace("[", "");
+            } else if (a.contains("]")) {
+                a.replace("]", "");
+            }
+            //addReplacement(a);
+        }
+    }
+
 
 }
