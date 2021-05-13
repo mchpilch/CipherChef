@@ -11,7 +11,7 @@ public class Homophonic extends EncryptionMethod {
         replacementMap = new HashMap<Character, ArrayList<Integer>>();
         constructReplacementMap();
         setDefaultReplacement();
-        displayReplacement();
+        //displayReplacement();
         super.setName("Homophonic");
     }
 
@@ -31,7 +31,7 @@ public class Homophonic extends EncryptionMethod {
         }
     }
 
-    private void displayReplacement() { //też na potrzeby testów
+    public void displayReplacement() { //też na potrzeby testów
         for (Character letter : replacementMap.keySet()) {
             System.out.print(letter + "=");
             System.out.println(replacementMap.get(letter));
@@ -77,6 +77,11 @@ public class Homophonic extends EncryptionMethod {
         return "#";
     }
 
+    private void addReplacement(String strNumber, char letter) {
+        int number = Integer.parseInt(strNumber);
+        replacementMap.get(letter).add(number);
+    }
+
     public void setInput(String input) {
         super.setInput(input.toLowerCase());
     }
@@ -93,15 +98,20 @@ public class Homophonic extends EncryptionMethod {
         return replacementMap.get(letter).toString();
     }
 
-    public void setReplacement(String string) {
+    public void setReplacement(String string, char letter) {
+        replacementMap.get(letter).clear();
         String[] newString = string.split(",");
         for (String a : newString) {
             if (a.contains("[")) {
-                a.replace("[", "");
-            } else if (a.contains("]")) {
-                a.replace("]", "");
+                a = a.replace("[", "");
             }
-            //addReplacement(a);
+            if (a.contains("]")) {
+                a = a.replace("]", "");
+            }
+            if (a.contains(" ")) {
+                a = a.replace(" ", "");
+            }
+            addReplacement(a, letter);
         }
     }
 

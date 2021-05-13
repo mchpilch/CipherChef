@@ -6,10 +6,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -33,6 +30,12 @@ public class HomophonicEncryptionInterfaceController {
 
     @FXML
     private VBox textFieldsVBox;
+
+    @FXML
+    private TextArea plainTextTextArea;
+
+    @FXML
+    private TextArea encryptedTextTextArea;
 
     private Label letterLabel[];
     private TextField replacementTextField[];
@@ -67,38 +70,6 @@ public class HomophonicEncryptionInterfaceController {
             textFieldsVBox.getChildren().add(replacementTextField[i]);
         }
     }
-    /*private void initializeMatrix() {
-        for(int i = 0; i < letterCount; i++){
-            ColumnConstraints colConst = new ColumnConstraints();
-            colConst.setPercentWidth(100.0 / letterCount);
-            replacementGridPane.getColumnConstraints().add(colConst);
-        }
-        for(int i = 0; i < 2; i++){
-            RowConstraints rowConst = new RowConstraints();
-            rowConst.setPercentHeight(100.0 / 2);
-            replacementGridPane.getRowConstraints().add(rowConst);
-        }
-
-        for (int i = 0; i < letterCount; i++) {
-            for (int j = 0; j < 2; j++) {
-                fillGridWithStackPane(i, j);
-            }
-            addLabelToGridPane(i, 0);
-        }
-    }
-
-    private void fillGridWithStackPane(int colIndex, int rowIndex) {
-        matrixStackPane[colIndex][rowIndex] = new StackPane();
-        replacementGridPane.add(matrixStackPane[colIndex][rowIndex], colIndex, rowIndex);
-    }
-
-    private void addLabelToGridPane(int colIndex, int rowIndex){
-        matrixCharactersLabel[colIndex] = new Label();
-        matrixCharactersLabel[colIndex].setText("-");
-        matrixCharactersLabel[colIndex].setFont(new Font("Arial", 24));
-        matrixCharactersLabel[colIndex].setTextFill(Color.valueOf("#0095cb"));
-        matrixStackPane[colIndex][rowIndex].getChildren().add(matrixCharactersLabel[colIndex]);
-    }*/
 
     public void backButtonPressed(ActionEvent actionEvent) throws IOException {
         Parent newRoot = FXMLLoader.load(getClass().getResource("FXMLFiles/ChooseEncryptionMethod.fxml"));
@@ -108,6 +79,9 @@ public class HomophonicEncryptionInterfaceController {
     }
 
     public void encryptButtonPressed(ActionEvent actionEvent) {
+        homophonic.setInput(plainTextTextArea.getText());
+        homophonic.encrypt();
+        encryptedTextTextArea.setText(homophonic.getOutput());
     }
 
     public void saveButtonPressed(ActionEvent actionEvent) {
@@ -120,8 +94,11 @@ public class HomophonicEncryptionInterfaceController {
 
     public void confirmButtonPressed(ActionEvent actionEvent) {
         for (int i = 0; i < letterCount; i++) {
-            homophonic.setReplacement(replacementTextField[i].getText());
+            homophonic.setReplacement(replacementTextField[i].getText(), letterLabel[i].getText().charAt(0));
         }
+        homophonic.displayReplacement();
+        setReplacementAnchorPane.setVisible(false);
+        setReplacementAnchorPane.setDisable(true);
     }
 
     public void closeButtonPressed(ActionEvent actionEvent) {
