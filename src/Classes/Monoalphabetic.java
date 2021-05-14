@@ -42,6 +42,23 @@ public class Monoalphabetic extends EncryptionMethod{
 
     public void decrypt() {
         calculateTextLettersFrequency();
+        char letter;
+        char[] text = getInput().toCharArray();
+        for(int i = 0; i < text.length; i++) {
+            letter = text[i];
+            if (text[i] != ' ') text[i] = getOriginalLetter(letter);
+        }
+
+        setOutput(new String(text));
+    }
+
+    private char getOriginalLetter(char letter) {
+        for (char key : replacement.keySet()) {
+            if (replacement.get(key).equals(letter)) {
+                return key;
+            }
+        }
+        return '#';
     }
 
     public void calculateTextLettersFrequency() {

@@ -121,8 +121,7 @@ public class PlayfairEncryptionInterfaceController {
 
     public void saveButtonPressed(ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Save Image");
-        //System.out.println(playfair.getOutput());
+        fileChooser.setTitle("Save file");
         fileChooser.setInitialDirectory(
                 new File(System.getProperty("user.home"))
         );

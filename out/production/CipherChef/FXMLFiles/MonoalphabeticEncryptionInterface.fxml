@@ -35,8 +35,9 @@
                   <Font size="22.0" />
                </font>
             </Button>
-            <GridPane fx:id="replacementGridPane" layoutX="951.0" layoutY="23.0" prefHeight="655.0" prefWidth="273.0" style="-fx-border-width: 2; -fx-border-color: #0095CB; -fx-border-insets: 5; -fx-border-radius: 5; -fx-grid-lines-visible: true; -fx-border-style: solid inside;" />
+            <GridPane fx:id="replacementGridPane" layoutX="954.0" layoutY="23.0" prefHeight="655.0" prefWidth="273.0" style="-fx-border-width: 2; -fx-border-color: #0095CB; -fx-border-insets: 5; -fx-border-radius: 5; -fx-grid-lines-visible: true; -fx-border-style: solid inside;" />
             <Separator layoutX="1087.0" layoutY="28.0" orientation="VERTICAL" prefHeight="645.0" prefWidth="0.0" />
+            <Button fx:id="setDefaultReplacementButton" layoutX="1095.0" layoutY="640.0" mnemonicParsing="false" onAction="#setDefaultReplacementButtonPressed" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 2; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="Default" />
          </children>
       </AnchorPane>
    </children>

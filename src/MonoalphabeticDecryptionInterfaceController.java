@@ -1,7 +1,6 @@
 import Classes.Monoalphabetic;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +10,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.skin.ComboBoxBaseSkin;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
@@ -22,14 +20,13 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-//import java.awt.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MonoalphabeticEncryptionInterfaceController {
+public class MonoalphabeticDecryptionInterfaceController {
 
     @FXML
     private GridPane replacementGridPane;
@@ -49,7 +46,7 @@ public class MonoalphabeticEncryptionInterfaceController {
     Timeline timeline;
     //private boolean modification;
 
-    public MonoalphabeticEncryptionInterfaceController() {
+    public MonoalphabeticDecryptionInterfaceController() {
         monoalphabetic = new Monoalphabetic();
         lettersCount = monoalphabetic.getPolishLettersCount();
         gridStackPane = new StackPane[4][lettersCount/2 + 1];
@@ -168,16 +165,16 @@ public class MonoalphabeticEncryptionInterfaceController {
     }
 
     public void backButtonPressed(ActionEvent actionEvent) throws IOException {
-        Parent newRoot = FXMLLoader.load(getClass().getResource("FXMLFiles/ChooseEncryptionMethod.fxml"));
+        Parent newRoot = FXMLLoader.load(getClass().getResource("FXMLFiles/ChooseDecryptionMethod.fxml"));
 
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         stageTheEventSourceNodeBelongs.setScene(new Scene(newRoot));
     }
 
     public void encryptButtonPressed(ActionEvent actionEvent) {
-        monoalphabetic.setInput(plainTextTextArea.getText());
-        monoalphabetic.encrypt();
-        encryptedTextTextArea.setText(monoalphabetic.getOutput());
+        monoalphabetic.setInput(encryptedTextTextArea.getText());
+        monoalphabetic.decrypt();
+        plainTextTextArea.setText(monoalphabetic.getOutput());
     }
 
     public void saveButtonPressed(ActionEvent actionEvent) {

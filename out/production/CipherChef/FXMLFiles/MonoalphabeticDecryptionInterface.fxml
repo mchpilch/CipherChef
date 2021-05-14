@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #373737; -fx-border-width: 10; -fx-border-color: #0095CB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MonoalphabeticEncryptionInterfaceController">
+<StackPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #373737; -fx-border-width: 10; -fx-border-color: #0095CB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MonoalphabeticDecryptionInterfaceController">
    <children>
       <AnchorPane fx:id="encryptedTextArea" prefHeight="400.0" prefWidth="600.0">
          <children>
@@ -23,8 +23,8 @@
                   <Font size="22.0" />
                </font>
             </Button>
-            <TextArea fx:id="plainTextTextArea" layoutX="123.0" layoutY="110.0" prefHeight="245.0" prefWidth="800.0" promptText="Tekst jawny" style="-fx-control-inner-background: #999999;" />
-            <TextArea fx:id="encryptedTextTextArea" layoutX="123.0" layoutY="372.0" prefHeight="245.0" prefWidth="800.0" promptText="Szyfrogram" style="-fx-control-inner-background: #999999;" />
+            <TextArea fx:id="plainTextTextArea" layoutX="123.0" layoutY="372.0" prefHeight="245.0" prefWidth="800.0" promptText="Tekst jawny" style="-fx-control-inner-background: #999999;" />
+            <TextArea fx:id="encryptedTextTextArea" layoutX="123.0" layoutY="110.0" prefHeight="245.0" prefWidth="800.0" promptText="Szyfrogram" style="-fx-control-inner-background: #999999;" />
             <Button fx:id="encryptButton" layoutX="-28.0" layoutY="330.0" mnemonicParsing="false" onAction="#encryptButtonPressed" prefHeight="48.0" prefWidth="178.0" rotate="90.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 5; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="---------&gt;">
                <font>
                   <Font size="22.0" />

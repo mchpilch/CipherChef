@@ -6,9 +6,12 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
@@ -18,7 +21,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class HomophonicEncryptionInterfaceController {
+public class HomophonicDecryptionInterfaceController {
 
     private Homophonic homophonic;
     private int letterCount;
@@ -43,7 +46,7 @@ public class HomophonicEncryptionInterfaceController {
     private Label letterLabel[];
     private TextField replacementTextField[];
 
-    public HomophonicEncryptionInterfaceController() {
+    public HomophonicDecryptionInterfaceController() {
         homophonic = new Homophonic();
         letterCount = homophonic.getLetterCount();
         letterLabel = new Label[letterCount];
@@ -82,9 +85,9 @@ public class HomophonicEncryptionInterfaceController {
     }
 
     public void encryptButtonPressed(ActionEvent actionEvent) {
-        homophonic.setInput(plainTextTextArea.getText());
-        homophonic.encrypt();
-        encryptedTextTextArea.setText(homophonic.getOutput());
+        homophonic.setInput(encryptedTextTextArea.getText());
+        homophonic.decrypt();
+        plainTextTextArea.setText(homophonic.getOutput());
     }
 
     public void saveButtonPressed(ActionEvent actionEvent) {

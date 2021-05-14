@@ -42,7 +42,11 @@ public class Homophonic extends EncryptionMethod {
         String plainText = getInput();
         String encryptedText = "";
         for (int i = 0; i < plainText.length(); i++) {
-            encryptedText += drawReplacement(plainText.charAt(i));
+            if (plainText.charAt(i) != ' ') {
+                encryptedText += drawReplacement(plainText.charAt(i));
+            } else {
+                encryptedText += " ";
+            }
         }
         setOutput(encryptedText);
     }
@@ -52,10 +56,14 @@ public class Homophonic extends EncryptionMethod {
         String plainText = "";
         char firstNumber, secondNumber;
         for (int i = 0; i < encryptedText.length(); i++) {
-            firstNumber = encryptedText.charAt(i);
-            i++;
-            secondNumber = encryptedText.charAt(i);
-            plainText += getLetterFromReplacement(firstNumber, secondNumber);
+            if (encryptedText.charAt(i) != ' ') {
+                firstNumber = encryptedText.charAt(i);
+                i++;
+                secondNumber = encryptedText.charAt(i);
+                plainText += getLetterFromReplacement(firstNumber, secondNumber);
+            } else {
+                plainText += " ";
+            }
         }
         setOutput(plainText);
     }

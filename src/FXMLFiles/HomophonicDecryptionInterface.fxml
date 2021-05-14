@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #373737; -fx-border-width: 10; -fx-border-color: #0095CB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HomophonicEncryptionInterfaceController">
+<StackPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #373737; -fx-border-width: 10; -fx-border-color: #0095CB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HomophonicDecryptionInterfaceController">
    <children>
       <AnchorPane fx:id="encryptedTextArea" prefHeight="400.0" prefWidth="600.0">
          <children>
@@ -25,10 +25,10 @@
                   <Font size="22.0" />
                </font>
             </Button>
-            <TextArea fx:id="plainTextTextArea" layoutX="14.0" layoutY="275.0" prefHeight="350.0" prefWidth="590.0" promptText="Tekst jawny" style="-fx-control-inner-background: #999999;" />
-            <TextArea fx:id="encryptedTextTextArea" layoutX="656.0" layoutY="275.0" prefHeight="350.0" prefWidth="590.0" promptText="Szyfrogram" style="-fx-control-inner-background: #999999;" />
+            <TextArea fx:id="plainTextTextArea" layoutX="656.0" layoutY="276.0" prefHeight="350.0" prefWidth="590.0" promptText="Tekst jawny" style="-fx-control-inner-background: #999999;" />
+            <TextArea fx:id="encryptedTextTextArea" layoutX="14.0" layoutY="275.0" prefHeight="350.0" prefWidth="590.0" promptText="Szyfrogram" style="-fx-control-inner-background: #999999;" />
             <Separator layoutX="618.0" layoutY="273.0" orientation="VERTICAL" prefHeight="355.0" prefWidth="25.0" />
-            <Button fx:id="encryptButton" layoutX="541.0" layoutY="198.0" mnemonicParsing="false" onAction="#encryptButtonPressed" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 5; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="Szyfruj &gt;">
+            <Button fx:id="encryptButton" layoutX="541.0" layoutY="198.0" mnemonicParsing="false" onAction="#encryptButtonPressed" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 5; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="Deszyfruj &gt;">
                <font>
                   <Font size="22.0" />
                </font>
@@ -38,12 +38,12 @@
                   <Font size="22.0" />
                </font>
             </Button>
-            <Button fx:id="setReplacementButton" layoutX="946.0" layoutY="15.0" mnemonicParsing="false" onAction="#setReplacementButtonPressed" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 5; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="Zdefiniuj podstawienie">
+            <Button fx:id="setReplacementButton" layoutX="946.0" layoutY="14.0" mnemonicParsing="false" onAction="#setReplacementButtonPressed" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 5; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="Zdefiniuj podstawienie">
                <font>
                   <Font size="22.0" />
                </font>
             </Button>
-            <AnchorPane fx:id="setReplacementAnchorPane" layoutX="325.0" layoutY="7.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #373737; -fx-border-width: 10; -fx-border-color: #0095CB;">
+            <AnchorPane fx:id="setReplacementAnchorPane" layoutX="325.0" layoutY="7.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #373737; -fx-border-width: 10; -fx-border-color: #0095CB;" visible="false">
                <children>
                   <Button fx:id="closeButton" layoutX="21.0" layoutY="617.0" mnemonicParsing="false" onAction="#closeButtonPressed" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 5; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="Zamknij">
                      <font>

@@ -38,7 +38,7 @@
                   <Font size="22.0" />
                </font>
             </Button>
-            <Button fx:id="setReplacementButton" layoutX="975.0" layoutY="15.0" mnemonicParsing="false" onAction="#setReplacementButtonPressed" prefHeight="50.0" prefWidth="271.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 5; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="Ustaw podstawienie">
+            <Button fx:id="setReplacementButton" layoutX="946.0" layoutY="15.0" mnemonicParsing="false" onAction="#setReplacementButtonPressed" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 5; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="Zdefiniuj podstawienie">
                <font>
                   <Font size="22.0" />
                </font>

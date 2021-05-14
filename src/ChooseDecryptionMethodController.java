@@ -1,4 +1,6 @@
 import Classes.EncryptionMethod;
+import Classes.Homophonic;
+import Classes.Monoalphabetic;
 import Classes.Playfair;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,12 +22,14 @@ public class ChooseDecryptionMethodController {
     private ComboBox chooseDecryptionMethodComboBox;
 
     public ChooseDecryptionMethodController() {
+        decryptionMethods.add(new Monoalphabetic());
         decryptionMethods.add(new Playfair());
+        decryptionMethods.add(new Homophonic());
     }
 
     @FXML
     void initialize(){
-        chooseDecryptionMethodComboBox.getItems().add(decryptionMethods);
+        chooseDecryptionMethodComboBox.getItems().addAll(decryptionMethods);
     }
 
     public void backButtonPressed(ActionEvent actionEvent) throws IOException { //powrót do menu startowego
@@ -36,9 +40,15 @@ public class ChooseDecryptionMethodController {
     }
 
     public void chooseDecryptionMethodComboBoxOnAction(ActionEvent actionEvent) throws IOException {
-        Parent newRoot = FXMLLoader.load(getClass().getResource("FXMLFiles/PlayfairDecryptionInterface.fxml"));
+        EncryptionMethod choosedMethod = (EncryptionMethod) chooseDecryptionMethodComboBox.getValue();
+        String methodName = choosedMethod.getName();
+        String path = "FXMLFiles/" + methodName + "DecryptionInterface.fxml";
+
+        Parent newRoot = FXMLLoader.load(getClass().getResource(path));
 
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        stageTheEventSourceNodeBelongs.setScene(new Scene(newRoot));
+        Scene scene = new Scene(newRoot);
+        scene.getStylesheets().add("CSS/style.css");
+        stageTheEventSourceNodeBelongs.setScene(scene);
     }
 }
