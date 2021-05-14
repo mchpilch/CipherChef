@@ -8,4 +8,6 @@ VM options:
 --module-path C:\Users\User\Desktop\Javafx\javafx-sdk-11.0.2\lib --add-modules javafx.fxml,javafx.controls,javafx.graphics
 
 Sources:
+
 https://www.geeksforgeeks.org/java-program-to-enode-a-message-using-playfair-cipher/
+https://www.baeldung.com/java-cipher-class

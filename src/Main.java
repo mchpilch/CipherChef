@@ -5,6 +5,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import java.nio.charset.StandardCharsets;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+
 public class Main extends Application {
 
     @Override
@@ -16,7 +24,7 @@ public class Main extends Application {
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
     /*
         Monoalphabetic mono = new Monoalphabetic();
         mono.setInput("Litwo Ojczyzno moja Ty jesteś jak zdrowie Ile cię stracił Dziś piękność twą w szlacheckim stanie trudno zaradzić wolał gości Żydom do nowej mody odsyłać konie porzucone same szczypiąc trawę ciągnęły powoli pod lasem zwaliska");
@@ -55,6 +63,16 @@ public class Main extends Application {
         homophonic.setInput("166126103210");
         homophonic.decrypt();
         System.out.println(homophonic.getOutput());*/
+
+        ECB ecb = new ECB();
+        //ecb.setInputString("Twój stary najebany na wersalce");
+        ecb.setKeyString("thisisa128bitkey");
+        //ecb.encrypt();
+        ecb.setInputString("XA/r6eI3vA6KPJX7K9XDiE+pHx3GIVqAYfN2jdpM0vHLc4PVG1zKNI7FxjLRcnPi");
+        ecb.decrypt();
+        System.out.println(ecb.getOutputString());
+
+
 
         launch(args);
     }
