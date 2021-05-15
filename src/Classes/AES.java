@@ -10,7 +10,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Base64;
 
-public class AES {
+public class AES extends EncryptionMethod{
 
     private String outputString;
     private String inputString;
@@ -23,6 +23,10 @@ public class AES {
         this.algorithm = algorithm;
     }
 
+    public AES() {
+        super.setName("AES");
+    }
+
     public void encrypt()
             throws InvalidKeyException, NoSuchPaddingException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException {
         Cipher cipher = Cipher.getInstance("AES/" + algorithm + "/PKCS5Padding");
@@ -30,7 +34,7 @@ public class AES {
         else cipher.init(Cipher.ENCRYPT_MODE, secretKey, iv);
         byte[] cipherText = cipher.doFinal(inputString.getBytes(StandardCharsets.UTF_8));
         setOutputString(Base64.getEncoder().encodeToString(cipherText));
-        System.out.println(getOutputString());
+        //System.out.println(getOutputString());
     }
 
     public void decrypt()
@@ -40,7 +44,11 @@ public class AES {
         else cipher.init(Cipher.DECRYPT_MODE, secretKey, iv);
         byte[] plainText = cipher.doFinal(Base64.getDecoder().decode(inputString.getBytes(StandardCharsets.UTF_8)));
         setOutputString(new String(plainText));
-        System.out.println(getOutputString());
+        //System.out.println(getOutputString());
+    }
+
+    public void setAlgorithm(String algorithm) {
+        this.algorithm = algorithm;
     }
 
     public void generateIv() {
@@ -84,5 +92,9 @@ public class AES {
 
     public String getIvString() {
         return Base64.getEncoder().encodeToString(iv.getIV());
+    }
+
+    public String getAlgorithm() {
+        return algorithm;
     }
 }

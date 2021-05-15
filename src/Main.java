@@ -61,7 +61,7 @@ public class Main extends Application {
         //homophonic.encrypt();
         homophonic.setInput("166126103210");
         homophonic.decrypt();
-        System.out.println(homophonic.getOutput());*/
+        System.out.println(homophonic.getOutput());
 
         AES ecb = new AES("CBC");
         ecb.setInputString("Twój stary najebany na wersalce");
@@ -74,7 +74,7 @@ public class Main extends Application {
         ecb.setInputString("KIGeBzGI8YGfqNL3YDge5omW52A9dO6g3IuKkjyzN/r0GmsgkHjuSCGhPN6VZlQ4");
         ecb.decrypt();
         //System.out.println(ecb.getOutputString());
-        //System.out.println(ecb.getKeyString());
+        //System.out.println(ecb.getKeyString());*/
 
 
 

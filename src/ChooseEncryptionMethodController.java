@@ -1,7 +1,4 @@
-import Classes.EncryptionMethod;
-import Classes.Homophonic;
-import Classes.Monoalphabetic;
-import Classes.Playfair;
+import Classes.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,6 +22,7 @@ public class ChooseEncryptionMethodController {
         encryptionMethods.add(new Monoalphabetic());
         encryptionMethods.add(new Playfair());
         encryptionMethods.add(new Homophonic());
+        encryptionMethods.add(new AES());
     }
 
     @FXML
