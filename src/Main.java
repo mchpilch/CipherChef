@@ -6,10 +6,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-import java.nio.charset.StandardCharsets;
+import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
@@ -24,7 +23,7 @@ public class Main extends Application {
     }
 
 
-    public static void main(String[] args) throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+    public static void main(String[] args) throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException, InvalidAlgorithmParameterException {
     /*
         Monoalphabetic mono = new Monoalphabetic();
         mono.setInput("Litwo Ojczyzno moja Ty jesteś jak zdrowie Ile cię stracił Dziś piękność twą w szlacheckim stanie trudno zaradzić wolał gości Żydom do nowej mody odsyłać konie porzucone same szczypiąc trawę ciągnęły powoli pod lasem zwaliska");
@@ -64,13 +63,18 @@ public class Main extends Application {
         homophonic.decrypt();
         System.out.println(homophonic.getOutput());*/
 
-        ECB ecb = new ECB();
-        //ecb.setInputString("Twój stary najebany na wersalce");
+        AES ecb = new AES("CBC");
+        ecb.setInputString("Twój stary najebany na wersalce");
         ecb.setKeyString("thisisa128bitkey");
+        //ecb.generateIv();
+        ecb.setIv("RKA2IpuGQlBJAez6276obQ==");
+        System.out.println(ecb.getIvString());
         //ecb.encrypt();
-        ecb.setInputString("XA/r6eI3vA6KPJX7K9XDiE+pHx3GIVqAYfN2jdpM0vHLc4PVG1zKNI7FxjLRcnPi");
+        //System.out.println(ecb.getOutputString());
+        ecb.setInputString("KIGeBzGI8YGfqNL3YDge5omW52A9dO6g3IuKkjyzN/r0GmsgkHjuSCGhPN6VZlQ4");
         ecb.decrypt();
-        System.out.println(ecb.getOutputString());
+        //System.out.println(ecb.getOutputString());
+        //System.out.println(ecb.getKeyString());
 
 
 
