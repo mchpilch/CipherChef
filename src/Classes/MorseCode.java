@@ -203,7 +203,7 @@ public class MorseCode extends EncryptionMethod{
                 w8(lenOflong+50);//w8(345);//bez tego dzwiek nie ma kiedy wybrzmiec i nie zostanie poprawnie odtworzony, dash potrzebuje wiecej czasu niz dot
             }
             if(currentSign.equals(" ")){
-                System.out.println("space");
+                System.out.println(" ");
                 w8(345);
             }
             if(currentSign.equals("/")){

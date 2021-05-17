@@ -55,10 +55,17 @@ public class Main extends Application {
 
 //        MorseCode morseCode = new MorseCode("sos jednostka uszkodzona N 21 5 W 78 7 niedaleko Karaibów  sos");
 //        morseCode.encrypt();
-        MorseCode morseCode = new MorseCode("... --- ... / .--- . -.. -. --- ... - -.- .- / ..- ... --.. -.- --- -.. --.. --- -. .- / -. / ..--- .---- / ..... / .-- / --... ---.. / --... / -. .. . -.. .- .-.. . -.- --- / -.- .- .-. .- .. -... --- .-- / / ... --- ... ");
+        //MorseCode morseCode = new MorseCode("... --- ... / .--- . -.. -. --- ... - -.- .- / ..- ... --.. -.- --- -.. --.. --- -. .- / -. / ..--- .---- / ..... / .-- / --... ---.. / --... / -. .. . -.. .- .-.. . -.- --- / -.- .- .-. .- .. -... --- .-- / / ... --- ... ");
         //morseCode.decrypt();
-        morseCode.soundMorseCode("... --- ... / .--- . -.. -. --- ... - -.- .- ");
-        //System.out.println("getOutput() " + morseCode.getOutput());
+        //morseCode.soundMorseCode("... --- ... / ... --- ... ");
+        //morseCode.soundMorseCode(morseCode.getOutput());
+//        System.out.println("getOutput() " + morseCode.getOutput());
+
+        RSA rsa = new RSA("polska gorom 321       aaaa");// on koduje rsa ale dziala jak podstawieniowy wiec niebezpoieczny a teraz w nocy znalazlem ze sa metody jakies w java rsa
+        //rsa.stringToNumbers("elo");
+        rsa.encrypt();
+        System.out.println("getOutput() " + rsa.getOutput());
+
 
         /*Homophonic homophonic = new Homophonic();
         //homophonic.setInput("dziala");
@@ -82,6 +89,6 @@ public class Main extends Application {
 
 
         //morseCode.soundMorseCode("... --- ... / .--- . -.. -. --- ... - -.- .- ");
-        launch(args);
+        //launch(args);
     }
 }
