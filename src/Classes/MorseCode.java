@@ -1,6 +1,9 @@
 package Classes;
 
 
+import javax.sound.sampled.*;
+import java.io.File;
+import java.io.IOException;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -119,7 +122,7 @@ public class MorseCode extends EncryptionMethod{
             encryptedInMorse += currentSign + " ";
         }
         setOutput(encryptedInMorse);
-    };
+    }
 
     public void decrypt(){//litery w kodzie morsa odseparowuje sie spacjami a slowa "/"
         String decrypted = "";
@@ -156,5 +159,58 @@ public class MorseCode extends EncryptionMethod{
         setOutput(decrypted);
     }
 
+    public static void w8(long ms)
+    {
+        try
+        {
+            Thread.sleep(ms);
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
+    }
 
+    public void soundMorseCode(String sequence) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+        File long_sig = new File("src/long_signal.wav");
+        File short_sig = new File("src/short_signal.wav");
+        AudioInputStream audioStreamLong = AudioSystem.getAudioInputStream(long_sig);
+        AudioInputStream audioStreamShort = AudioSystem.getAudioInputStream(short_sig);
+        Clip clip_long = AudioSystem.getClip();
+        Clip clip_short = AudioSystem.getClip();
+        clip_long.open(audioStreamLong);
+        clip_short.open(audioStreamShort);
+
+
+        //String sequence = "-.- --- -.-. / -.-. .. .";
+        long lenOfshort = clip_short.getMicrosecondLength()/1000;//μs to ms
+        long lenOflong = clip_long.getMicrosecondLength()/1000;//μs to ms
+        // System.out.println(clip_long.getMicrosecondLength());
+        // System.out.println(clip_short.getMicrosecondLength());
+
+        for(int i = 0; i < sequence.length(); i++){
+            String currentSign = String.valueOf(sequence.charAt(i));
+            if(currentSign.equals(".")){
+                clip_short.setMicrosecondPosition(0);
+                clip_short.start();
+                System.out.println("dot");
+                w8(lenOfshort+50); //wait(175);//bez tego dzwiek nie ma kiedy wybrzmiec i nie zostanie poprawnie odtworzony
+            }
+            if(currentSign.equals("-")){
+                clip_long.setMicrosecondPosition(0);
+                clip_long.start();
+                System.out.println("dash");
+                w8(lenOflong+50);//w8(345);//bez tego dzwiek nie ma kiedy wybrzmiec i nie zostanie poprawnie odtworzony, dash potrzebuje wiecej czasu niz dot
+            }
+            if(currentSign.equals(" ")){
+                System.out.println("space");
+                w8(345);
+            }
+            if(currentSign.equals("/")){
+                System.out.println("/");
+                w8(1035);
+            }
+
+        }
+    }
 }

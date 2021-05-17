@@ -8,6 +8,9 @@ import javafx.stage.Stage;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -23,7 +26,7 @@ public class Main extends Application {
     }
 
 
-    public static void main(String[] args) throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException, InvalidAlgorithmParameterException {
+    public static void main(String[] args) throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException, InvalidAlgorithmParameterException, UnsupportedAudioFileException, IOException, LineUnavailableException {
     /*
         Monoalphabetic mono = new Monoalphabetic();
         mono.setInput("Litwo Ojczyzno moja Ty jesteś jak zdrowie Ile cię stracił Dziś piękność twą w szlacheckim stanie trudno zaradzić wolał gości Żydom do nowej mody odsyłać konie porzucone same szczypiąc trawę ciągnęły powoli pod lasem zwaliska");
@@ -49,13 +52,14 @@ public class Main extends Application {
 
 //        System.out.println("getOutput() " + vigener.getOutput());
         //launch(args);
-/*
-        MorseCode morseCode = new MorseCode("sos jednostka uszkodzona N 21 5 W 78 7 niedaleko Karaibów  sos");
-        morseCode.encrypt();
-//        MorseCode morseCode = new MorseCode("... --- ... / .--- . -.. -. --- ... - -.- .- / ..- ... --.. -.- --- -.. --.. --- -. .- / -. / ..--- .---- / ..... / .-- / --... ---.. / --... / -. .. . -.. .- .-.. . -.- --- / -.- .- .-. .- .. -... --- .-- / / ... --- ... ");
-//        morseCode.decrypt();
-        System.out.println("getOutput() " + morseCode.getOutput());
-*/
+
+//        MorseCode morseCode = new MorseCode("sos jednostka uszkodzona N 21 5 W 78 7 niedaleko Karaibów  sos");
+//        morseCode.encrypt();
+        MorseCode morseCode = new MorseCode("... --- ... / .--- . -.. -. --- ... - -.- .- / ..- ... --.. -.- --- -.. --.. --- -. .- / -. / ..--- .---- / ..... / .-- / --... ---.. / --... / -. .. . -.. .- .-.. . -.- --- / -.- .- .-. .- .. -... --- .-- / / ... --- ... ");
+        //morseCode.decrypt();
+        morseCode.soundMorseCode("... --- ... / .--- . -.. -. --- ... - -.- .- ");
+        //System.out.println("getOutput() " + morseCode.getOutput());
+
         /*Homophonic homophonic = new Homophonic();
         //homophonic.setInput("dziala");
         //homophonic.encrypt();
@@ -77,7 +81,7 @@ public class Main extends Application {
         //System.out.println(ecb.getKeyString());*/
 
 
-
+        //morseCode.soundMorseCode("... --- ... / .--- . -.. -. --- ... - -.- .- ");
         launch(args);
     }
 }
