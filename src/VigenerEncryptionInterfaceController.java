@@ -1,4 +1,3 @@
-import Classes.Playfair;
 import Classes.Vigener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,7 +21,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class VigenerDecryptionInterfaceController {
+public class VigenerEncryptionInterfaceController {
     @FXML
     private TextField keyTextField;
     @FXML
@@ -37,7 +36,7 @@ public class VigenerDecryptionInterfaceController {
     private StackPane[][] matrixStackPane;
     private Label[][] matrixCharactersLabel;
 
-    public VigenerDecryptionInterfaceController() {
+    public VigenerEncryptionInterfaceController() {
         vigener = new Vigener();
         matrixDimension = vigener.getAlphabet().length();
         matrixStackPane = new StackPane[matrixDimension][matrixDimension];
@@ -92,7 +91,7 @@ public class VigenerDecryptionInterfaceController {
     }
 
     public void backButtonPressed(ActionEvent actionEvent) throws IOException {
-        Parent newRoot = FXMLLoader.load(getClass().getResource("FXMLFiles/ChooseDecryptionMethod.fxml"));
+        Parent newRoot = FXMLLoader.load(getClass().getResource("FXMLFiles/ChooseEncryptionMethod.fxml"));
 
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         stageTheEventSourceNodeBelongs.setScene(new Scene(newRoot));
@@ -101,11 +100,11 @@ public class VigenerDecryptionInterfaceController {
     public void keyTextFieldFilled(ActionEvent actionEvent) {
     }
 
-    public void decryptButtonPressed(ActionEvent actionEvent) {
-        vigener.setInput(encryptedTextTextArea.getText());
+    public void encryptButtonPressed(ActionEvent actionEvent) {
+        vigener.setInput(plainTextTextArea.getText());
         vigener.setKey(keyTextField.getText());
-        vigener.decrypt();
-        plainTextTextArea.setText(vigener.getOutput());
+        vigener.encrypt();
+        encryptedTextTextArea.setText(vigener.getOutput());
     }
 
     public void saveButtonPressed(ActionEvent actionEvent) {

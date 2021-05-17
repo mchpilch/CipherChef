@@ -20,8 +20,9 @@ public class ChooseDecryptionMethodController {
 
     public ChooseDecryptionMethodController() {
         decryptionMethods.add(new Monoalphabetic());
-        decryptionMethods.add(new Playfair());
         decryptionMethods.add(new Homophonic());
+        decryptionMethods.add(new Playfair());
+        decryptionMethods.add(new Vigener());
         decryptionMethods.add(new AES());
     }
 

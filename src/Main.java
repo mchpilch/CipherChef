@@ -55,9 +55,9 @@ public class Main extends Application {
 
 //        MorseCode morseCode = new MorseCode("sos jednostka uszkodzona N 21 5 W 78 7 niedaleko Karaibów  sos");
 //        morseCode.encrypt();
-        MorseCode morseCode = new MorseCode("... --- ... / .--- . -.. -. --- ... - -.- .- / ..- ... --.. -.- --- -.. --.. --- -. .- / -. / ..--- .---- / ..... / .-- / --... ---.. / --... / -. .. . -.. .- .-.. . -.- --- / -.- .- .-. .- .. -... --- .-- / / ... --- ... ");
+        //MorseCode morseCode = new MorseCode("... --- ... / .--- . -.. -. --- ... - -.- .- / ..- ... --.. -.- --- -.. --.. --- -. .- / -. / ..--- .---- / ..... / .-- / --... ---.. / --... / -. .. . -.. .- .-.. . -.- --- / -.- .- .-. .- .. -... --- .-- / / ... --- ... ");
         //morseCode.decrypt();
-        morseCode.soundMorseCode("... --- ... / .--- . -.. -. --- ... - -.- .- ");
+        //morseCode.soundMorseCode("... --- ... / .--- . -.. -. --- ... - -.- .- ");
         //System.out.println("getOutput() " + morseCode.getOutput());
 
         /*Homophonic homophonic = new Homophonic();

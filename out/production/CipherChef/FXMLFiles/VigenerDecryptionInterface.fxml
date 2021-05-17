@@ -34,12 +34,12 @@
                 <GridPane fx:id="matrixGridPane" layoutX="698.0" layoutY="114.0" prefHeight="509.0" prefWidth="518.0" style="-fx-border-width: 2; -fx-border-color: #0095CB; -fx-border-insets: 5; -fx-border-radius: 5; -fx-grid-lines-visible: true; -fx-border-style: solid inside;">
                 </GridPane>
                 <TextField fx:id="keyTextField" layoutX="129.0" layoutY="134.0" onAction="#keyTextFieldFilled" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #999999;" />
-                <Button fx:id="decryptButton" layoutX="450.0" layoutY="123.0" mnemonicParsing="false" onAction="#decryptButtonPressed" prefHeight="58.0" prefWidth="168.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 5; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="Deszyfruj &gt;">
+                <Button fx:id="decryptButton" layoutX="450.0" layoutY="123.0" mnemonicParsing="false" onAction="#decryptButtonPressed" prefHeight="58.0" prefWidth="168.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 5; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="Deszyfruj">
                     <font>
                         <Font size="22.0" />
                     </font>
                 </Button>
-                <Button fx:id="saveButton" layoutX="868.0" layoutY="636.0" mnemonicParsing="false" onAction="#saveButtonPressed" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 5; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="Zapisz">
+                <Button fx:id="saveButton" layoutX="190.0" layoutY="623.0" mnemonicParsing="false" onAction="#saveButtonPressed" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 5; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="Zapisz">
                     <font>
                         <Font size="22.0" />
                     </font>

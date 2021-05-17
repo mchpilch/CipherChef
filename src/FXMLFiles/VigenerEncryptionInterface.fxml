@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #373737; -fx-border-width: 10; -fx-border-color: #0095CB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VigenerDecryptionInterfaceController">
+<StackPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #373737; -fx-border-width: 10; -fx-border-color: #0095CB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VigenerEncryptionInterfaceController">
     <children>
         <AnchorPane fx:id="encryptedTextArea" prefHeight="400.0" prefWidth="600.0">
             <children>
@@ -24,8 +24,8 @@
                         <Font size="22.0" />
                     </font>
                 </Button>
-                <TextArea fx:id="encryptedTextTextArea" layoutX="28.0" layoutY="196.0" prefHeight="172.0" prefWidth="590.0" promptText="Szyfrogram" style="-fx-control-inner-background: #999999;" />
-                <TextArea fx:id="plainTextTextArea" layoutX="28.0" layoutY="439.0" prefHeight="172.0" prefWidth="590.0" promptText="Tekst jawny" style="-fx-control-inner-background: #999999;" />
+                <TextArea fx:id="encryptedTextTextArea" layoutX="28.0" layoutY="439.0" prefHeight="172.0" prefWidth="590.0" promptText="Szyfrogram" style="-fx-control-inner-background: #999999;" />
+                <TextArea fx:id="plainTextTextArea" layoutX="28.0" layoutY="197.0" prefHeight="172.0" prefWidth="590.0" promptText="Tekst jawny" style="-fx-control-inner-background: #999999;" />
                 <Label layoutX="28.0" layoutY="126.0" prefHeight="45.0" prefWidth="95.0" text="Klucz" textFill="#0095cb">
                     <font>
                         <Font size="35.0" />
@@ -34,7 +34,7 @@
                 <GridPane fx:id="matrixGridPane" layoutX="698.0" layoutY="114.0" prefHeight="509.0" prefWidth="518.0" style="-fx-border-width: 2; -fx-border-color: #0095CB; -fx-border-insets: 5; -fx-border-radius: 5; -fx-grid-lines-visible: true; -fx-border-style: solid inside;">
                 </GridPane>
                 <TextField fx:id="keyTextField" layoutX="129.0" layoutY="134.0" onAction="#keyTextFieldFilled" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #999999;" />
-                <Button fx:id="decryptButton" layoutX="450.0" layoutY="123.0" mnemonicParsing="false" onAction="#decryptButtonPressed" prefHeight="58.0" prefWidth="168.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 5; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="Deszyfruj">
+                <Button fx:id="encryptButton" layoutX="450.0" layoutY="123.0" mnemonicParsing="false" onAction="#encryptButtonPressed" prefHeight="58.0" prefWidth="168.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 5; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="Szyfruj">
                     <font>
                         <Font size="22.0" />
                     </font>

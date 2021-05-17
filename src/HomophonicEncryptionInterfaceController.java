@@ -67,6 +67,7 @@ public class HomophonicEncryptionInterfaceController {
             labelsVBox.getChildren().add(letterLabel[i]);
 
             replacementTextField[i] = new TextField();
+            replacementTextField[i].getStyleClass().add("text-field-homo");
             replacementTextField[i].setText(homophonic.getReplacement(letterLabel[i].getText().charAt(0)));
             replacementTextField[i].setFont(new Font("Arial", 15));
             replacementTextField[i].setPadding(new Insets(1));
