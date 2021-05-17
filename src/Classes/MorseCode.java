@@ -20,6 +20,12 @@ public class MorseCode extends EncryptionMethod{
         setInput(plainText.toLowerCase());
     }
 
+    public MorseCode() {
+        super.setName("MorseCode");
+        setLetterToMorse();
+        setMorseToLetter();
+    }
+
     public void setLetterToMorse() {// . -
         letterToMorse.put('a', ".-");
         letterToMorse.put('ą', ".-");
@@ -212,5 +218,18 @@ public class MorseCode extends EncryptionMethod{
             }
 
         }
+    }
+
+    @Override
+    public void setInput(String input) {
+        super.setInput(input.toLowerCase());
+    }
+
+    public Map<Character, String> getLetterToMorse() {
+        return letterToMorse;
+    }
+
+    public Map<String, Character> getMorseToLetter() {
+        return morseToLetter;
     }
 }

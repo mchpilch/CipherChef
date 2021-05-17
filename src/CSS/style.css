@@ -23,3 +23,8 @@
     -fx-background-color: #373737;
     -fx-text-fill: #0095CB;
 }
+
+.morse-legend-label {
+    -fx-font: 20px "Arial";
+    -fx-text-fill: #0095CB;
+}

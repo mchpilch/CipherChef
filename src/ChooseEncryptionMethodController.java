@@ -21,6 +21,7 @@ public class ChooseEncryptionMethodController {
     public ChooseEncryptionMethodController() {
         encryptionMethods.add(new Monoalphabetic());
         encryptionMethods.add(new Homophonic());
+        encryptionMethods.add(new MorseCode());
         encryptionMethods.add(new Playfair());
         encryptionMethods.add(new Vigener());
         encryptionMethods.add(new AES());

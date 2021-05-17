@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #373737; -fx-border-width: 10; -fx-border-color: #0095CB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MorseCodeDecryptionInterfaceController">
+    <children>
+        <AnchorPane fx:id="encryptedTextArea" prefHeight="400.0" prefWidth="600.0">
+            <children>
+                <Label layoutX="865.0" layoutY="9.0" text="KOD MORSA" textFill="#0095cb">
+                    <font>
+                        <Font size="50.0" />
+                    </font>
+                </Label>
+                <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backButtonPressed" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 5; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="Powrót">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                </Button>
+                <TextArea fx:id="encryptedTextTextArea" layoutX="50.0" layoutY="147.0" prefHeight="220.0" prefWidth="715.0" promptText="Szyfrogram" style="-fx-control-inner-background: #999999;" />
+                <TextArea fx:id="plainTextTextArea" layoutX="50.0" layoutY="398.0" prefHeight="220.0" prefWidth="715.0" promptText="Tekst jawny" style="-fx-control-inner-background: #999999;" />
+                <Button fx:id="decryptButton" layoutX="597.0" layoutY="92.0" mnemonicParsing="false" onAction="#decryptButtonPressed" prefHeight="50.0" prefWidth="168.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 5; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="Deszyfruj">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                </Button>
+                <Button fx:id="saveButton" layoutX="587.0" layoutY="622.0" mnemonicParsing="false" onAction="#saveButtonPressed" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 5; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="Zapisz">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                </Button>
+            <Separator layoutX="50.0" layoutY="381.0" prefHeight="0.0" prefWidth="715.0" />
+            <HBox layoutX="839.0" layoutY="92.0" prefHeight="580.0" prefWidth="362.0" style="-fx-border-color: #0095CB; -fx-border-radius: 5; -fx-border-width: 3;">
+               <children>
+                  <VBox fx:id="leftColumnVBox" alignment="CENTER_LEFT" prefHeight="280.0" prefWidth="230.0">
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding></VBox>
+                  <VBox fx:id="rightColumnVBox" alignment="CENTER_LEFT" prefHeight="280.0" prefWidth="230.0">
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding></VBox>
+               </children>
+            </HBox>
+            <Button fx:id="playButton" layoutX="50.0" layoutY="92.0" mnemonicParsing="false" onAction="#playButtonPressed" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 5; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="Odtwórz">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Button>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>
