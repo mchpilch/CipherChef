@@ -28,3 +28,8 @@
     -fx-font: 20px "Arial";
     -fx-text-fill: #0095CB;
 }
+
+.rsa-text-field {
+    -fx-font: 20px "Arial";
+    -fx-background-color:  #999999;
+}

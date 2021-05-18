@@ -25,6 +25,7 @@ public class ChooseEncryptionMethodController {
         encryptionMethods.add(new Playfair());
         encryptionMethods.add(new Vigener());
         encryptionMethods.add(new AES());
+        encryptionMethods.add(new RSA());
     }
 
     @FXML
