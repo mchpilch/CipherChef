@@ -32,15 +32,19 @@ public class StartMenuController {
     public void encryptionButtonPressed(ActionEvent actionEvent) throws IOException {  // tutaj otworzy sie okno z wyborem metody szyfrowania
         Parent newRoot = FXMLLoader.load(getClass().getResource("FXMLFiles/ChooseEncryptionMethod.fxml"));
 
-        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        stageTheEventSourceNodeBelongs.setScene(new Scene(newRoot));
+        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        Scene scene = new Scene(newRoot);
+        scene.getStylesheets().add("CSS/style.css");
+        stageTheEventSourceNodeBelongs.setScene(scene);
     }
 
     public void decryptionButtonPressed(ActionEvent actionEvent) throws IOException { // tutaj otworzy się okno z wyborem metody deszyfrowania
         Parent newRoot = FXMLLoader.load(getClass().getResource("FXMLFiles/ChooseDecryptionMethod.fxml"));
 
-        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        stageTheEventSourceNodeBelongs.setScene(new Scene(newRoot));
+        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        Scene scene = new Scene(newRoot);
+        scene.getStylesheets().add("CSS/style.css");
+        stageTheEventSourceNodeBelongs.setScene(scene);
     }
 
     public void authorsButtonPressed(ActionEvent actionEvent) {
