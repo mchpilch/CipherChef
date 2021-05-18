@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -56,6 +57,8 @@ public class AESEncryptionInterfaceController {
     private void addAlgorithms() {
         availableAlgorithms.add("ECB");
         availableAlgorithms.add("CBC");
+        availableAlgorithms.add("CFB");
+        availableAlgorithms.add("OFB");
     }
 
     private void disableNode(Node node) {
@@ -107,12 +110,17 @@ public class AESEncryptionInterfaceController {
         }
     }
 
-    public void ivTextFieldFilled(ActionEvent actionEvent) {
-    }
-
     public void chooseAlgorithmComboBoxOnAction(ActionEvent actionEvent) {
         aes.setAlgorithm(chooseAlgorithmComboBox.getValue().toString());
         if (aes.getAlgorithm() != "ECB") enableNode(ivHBox);
         else disableNode(ivHBox);
+    }
+
+    public void ivTextFieldClicked(MouseEvent mouseEvent) {
+        TextField thisTextField = (TextField) mouseEvent.getSource();
+        if (thisTextField.getText() == "") {
+            aes.generateIv();
+            thisTextField.setText(aes.getIvString());
+        }
     }
 }

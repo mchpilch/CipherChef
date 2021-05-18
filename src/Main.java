@@ -57,6 +57,7 @@ public class Main extends Application {
 //        morseCode.encrypt();
         //MorseCode morseCode = new MorseCode("... --- ... / .--- . -.. -. --- ... - -.- .- / ..- ... --.. -.- --- -.. --.. --- -. .- / -. / ..--- .---- / ..... / .-- / --... ---.. / --... / -. .. . -.. .- .-.. . -.- --- / -.- .- .-. .- .. -... --- .-- / / ... --- ... ");
         //morseCode.decrypt();
+
         //morseCode.soundMorseCode("... --- ... / ... --- ... ");
         //morseCode.soundMorseCode(morseCode.getOutput());
 //        System.out.println("getOutput() " + morseCode.getOutput());
@@ -65,7 +66,6 @@ public class Main extends Application {
         //rsa.stringToNumbers("elo");
         rsa.encrypt();
         System.out.println("getOutput() " + rsa.getOutput());
-
 
         /*Homophonic homophonic = new Homophonic();
         //homophonic.setInput("dziala");

@@ -21,7 +21,7 @@
                   <Font size="28.0" />
                </font>
             </Label>
-            <Button fx:id="backButton" layoutX="26.0" layoutY="20.0" mnemonicParsing="false" onAction="#backButtonPressed" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 5; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="Powrót">
+            <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backButtonPressed" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 5; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="Powrót">
                <font>
                   <Font size="22.0" />
                </font>

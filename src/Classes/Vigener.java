@@ -16,6 +16,11 @@ public class Vigener extends EncryptionMethod {
 
     }
 
+    public Vigener() {
+        generateMatrix();
+        super.setName("Vigener");
+    }
+
     public void generateMatrix() {
         int index = 0;
         for (int i = 0; i < 26; i++) {
@@ -128,5 +133,25 @@ public class Vigener extends EncryptionMethod {
         decryptedText += currentLetterOfOutput;
         }
     setOutput(decryptedText);
+    }
+
+    @Override
+    public void setInput(String input) {
+        String plainTextNoSpaceces = input.replaceAll("\\s+","");//usuwa spacje itp.
+        super.setInput(plainTextNoSpaceces.toLowerCase());
+    }
+
+    @Override
+    public void setKey(String key) {
+        String keyAccurateLength = matchKeyLength(getInput(), key);//zwraca nowy klucz o odpowiedniej długości
+        super.setKey(keyAccurateLength.toLowerCase());
+    }
+
+    public String getAlphabet() {
+        return alphabet;
+    }
+
+    public char[][] getMatrix() {
+        return matrix;
     }
 }

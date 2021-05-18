@@ -55,7 +55,7 @@
                         <Font size="22.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="ivTextField" onAction="#ivTextFieldFilled" prefHeight="35.0" prefWidth="270.0" style="-fx-background-color: #999999;" />
+                  <TextField fx:id="ivTextField" onMouseClicked="#ivTextFieldClicked" prefHeight="35.0" prefWidth="270.0" promptText="Kliknij aby wygenerować" style="-fx-background-color: #999999;" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="14.0" layoutY="127.0">
