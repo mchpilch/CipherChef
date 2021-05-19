@@ -28,3 +28,17 @@
     -fx-font: 20px "Arial";
     -fx-text-fill: #0095CB;
 }
+
+.rsa-text-field {
+    -fx-font: 20px "Arial";
+    -fx-background-color:  #999999;
+}
+
+.enc-methods-btn {
+    -fx-font: 26px "Arial";
+    -fx-text-fill: #0095CB;
+    -fx-background-color: #373737;
+    -fx-border-color: #0095CB;
+    -fx-border-width: 3px;
+    -fx-border-radius: 5px;
+}

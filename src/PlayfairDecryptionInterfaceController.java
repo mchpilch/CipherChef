@@ -103,8 +103,10 @@ public class PlayfairDecryptionInterfaceController {
     public void backButtonPressed(ActionEvent actionEvent) throws IOException {
         Parent newRoot = FXMLLoader.load(getClass().getResource("FXMLFiles/ChooseDecryptionMethod.fxml"));
 
-        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        stageTheEventSourceNodeBelongs.setScene(new Scene(newRoot));
+        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        Scene scene = new Scene(newRoot);
+        scene.getStylesheets().add("CSS/style.css");
+        stageTheEventSourceNodeBelongs.setScene(scene);
     }
 
     public void keyTextFieldFilled(ActionEvent actionEvent) {

@@ -5,11 +5,14 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public class RSA extends EncryptionMethod{
-    public RSA(String plainText){
-        stringToNumbers(plainText);
-    }
     ArrayList<Integer> message = new ArrayList<Integer>();
     ArrayList<Integer> messageEncrypted = new ArrayList<Integer>();
+    private int p, q;
+    public RSA(){
+        super.setName("RSA");
+    }
+
+
 
     public void stringToNumbers(String str){
         for(int i = 0; i < str.length();i++){
@@ -22,7 +25,7 @@ public class RSA extends EncryptionMethod{
 
     public  BigInteger oneNumberCoding(Integer currentNum){//szyfrowanie
 
-        int p, q, n, z, d = 0, e, i;
+        int n, z, d = 0, e, i;
         //wybieramy liczbę e mniejszą od iloczynu (p-1)*(q-1) i nie mającą większego wspólnego dzielnika z liczbą (p-1)*(q-1) niż 1
         // The number to be encrypted and decrypted
         int msg = currentNum;
@@ -30,10 +33,10 @@ public class RSA extends EncryptionMethod{
         BigInteger msgback;
         //znajdujemy dwie, duże liczby pierwsze p i q
         // 1st prime number p
-        p = 3;
+        //p = 3;
 
         // 2nd prime number q
-        q = 11;
+        //q = 11;
         n = p * q;   //obliczamy ich iloczyn n
 
         z = (p - 1) * (q - 1);
@@ -89,6 +92,18 @@ public class RSA extends EncryptionMethod{
             encrypted += " ";
         }
         setOutput(encrypted);
+    }
+
+    public void setP(int p) {
+        this.p = p;
+    }
+
+    public void setQ(int q) {
+        this.q = q;
+    }
+
+    public void setMessage(String str) {
+        stringToNumbers(str);
     }
 }
 
