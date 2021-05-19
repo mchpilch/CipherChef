@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class MorseCode extends EncryptionMethod{
 
-    Map<Character, String> letterToMorse = new HashMap<Character, String>();
+   // Map<Character, String> letterToMorse = new HashMap<Character, String>();
     Map<String, Character> morseToLetter = new HashMap<String, Character>();
 
     public MorseCode(String plainText) {
@@ -25,7 +25,7 @@ public class MorseCode extends EncryptionMethod{
         setLetterToMorse();
         setMorseToLetter();
     }
-
+    Map<Character, String> letterToMorse = new HashMap<Character, String>();
     public void setLetterToMorse() {// . -
         letterToMorse.put('a', ".-");
         letterToMorse.put('ą', ".-");
@@ -121,10 +121,13 @@ public class MorseCode extends EncryptionMethod{
         //morseToLetter.put(" ", ' ');
         morseToLetter.put("/", ' ');
     }
+    //getinput to teskt do zaszyfrowania
+
+
     public void encrypt(){
         String encryptedInMorse = "";
         for(int i = 0; i < getInput().length();i++){
-            String currentSign = letterToMorse.get(getInput().charAt(i));//getinput to teskt do zaszyfrowania
+            String currentSign = letterToMorse.get(getInput().charAt(i));
             encryptedInMorse += currentSign + " ";
         }
         setOutput(encryptedInMorse);
@@ -165,8 +168,7 @@ public class MorseCode extends EncryptionMethod{
         setOutput(decrypted);
     }
 
-    public static void w8(long ms)
-    {
+    public static void w8(long ms) {
         try
         {
             Thread.sleep(ms);
@@ -188,11 +190,12 @@ public class MorseCode extends EncryptionMethod{
         clip_short.open(audioStreamShort);
 
 
-        //String sequence = "-.- --- -.-. / -.-. .. .";
+
         long lenOfshort = clip_short.getMicrosecondLength()/1000;//μs to ms
         long lenOflong = clip_long.getMicrosecondLength()/1000;//μs to ms
-        // System.out.println(clip_long.getMicrosecondLength());
-        // System.out.println(clip_short.getMicrosecondLength());
+
+        //pętla iterująca po wiadomości i odtwarzająca dźwięk
+
 
         for(int i = 0; i < sequence.length(); i++){
             String currentSign = String.valueOf(sequence.charAt(i));

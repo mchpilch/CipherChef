@@ -89,6 +89,6 @@ public class Main extends Application {
 
 
         //morseCode.soundMorseCode("... --- ... / .--- . -.. -. --- ... - -.- .- ");
-        //launch(args);
+        launch(args);
     }
 }

@@ -37,7 +37,7 @@ public class RSA extends EncryptionMethod{
         n = p * q;   //obliczamy ich iloczyn n
 
         z = (p - 1) * (q - 1);
-        System.out.println("the value of z = " + z);
+        //System.out.println("the value of z = " + z);
         //wybieramy liczbę e mniejszą od iloczynu (p-1)*(q-1) i nie mającą większego wspólnego dzielnika z liczbą (p-1)*(q-1) niż 1
         for (e = 2; e < z; e++) {
 
@@ -46,7 +46,7 @@ public class RSA extends EncryptionMethod{
                 break;
             }
         }
-        System.out.println("PUBLIC KEY the value of e = " + e + " the value of n = " + n);//klucz publiczny to liczby: (e, n)
+        //System.out.println("PUBLIC KEY the value of e = " + e + " the value of n = " + n);//klucz publiczny to liczby: (e, n)
         for (i = 0; i <= 9; i++) {//obliczamy element odwrotny d względem liczby e modulo (p-1)*(q-1), a wiec d powinno być taką liczbą, aby wynikiem mnożenia e*d była jedynka, oczywiście modulo (p-1)*(q-1)
             int x = 1 + (i * z);
 
@@ -56,9 +56,9 @@ public class RSA extends EncryptionMethod{
                 break;
             }
         }
-        System.out.println("PRIVATE KEY the value of d = " + d + " the value of n = " + n);//klucz prywatny to liczby: (d, n)
+        //System.out.println("PRIVATE KEY the value of d = " + d + " the value of n = " + n);//klucz prywatny to liczby: (d, n)
         c = (Math.pow(msg, e)) % n; //Szyfrowanie: wiadomość M podnsimy do potęgi e i wykonujemy operację modulo n:  (C = M^e mod n  )
-        System.out.println("Encrypted message is : " + c);
+        //System.out.println("Encrypted message is : " + c);
 
         // converting int value of n to BigInteger
         BigInteger N = BigInteger.valueOf(n);
@@ -66,8 +66,8 @@ public class RSA extends EncryptionMethod{
         // converting float value of c to BigInteger
         BigInteger C = BigDecimal.valueOf(c).toBigInteger();
         msgback = (C.pow(d)).mod(N);
-        System.out.println("Decrypted message is : "
-                + msgback);
+        //System.out.println("Decrypted message is : "
+        //        + msgback);
 
         return msgback;
     }
