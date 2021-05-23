@@ -11,11 +11,10 @@ public class Homophonic extends EncryptionMethod {
         replacementMap = new HashMap<Character, ArrayList<Integer>>();
         constructReplacementMap();
         setDefaultReplacement();
-        //displayReplacement();
         super.setName("Homophonic");
     }
 
-    private void constructReplacementMap() { //konstuujemy mapę z 26 znakami i list dla każdego znaku
+    private void constructReplacementMap() { //konstruujemy mapę z 26 znakami i liste dla każdego znaku
         for (int i = 97; i < 97 + 26; i++) {
             replacementMap.put((char) i, new ArrayList<Integer>());
         }

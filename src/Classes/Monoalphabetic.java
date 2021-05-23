@@ -11,10 +11,6 @@ public class Monoalphabetic extends EncryptionMethod{
     Map<Character, Double> polishLetters = new HashMap<Character, Double>();
     Map<Character, Double> textLetters = new HashMap<Character, Double>();
 
-    /*public Monoalphabetic(String input, String output, String key) {
-        super(input, output, key);
-    }*/
-
     public Monoalphabetic() {
         setPolishLetters();
         setDefaultReplacement();
@@ -41,7 +37,6 @@ public class Monoalphabetic extends EncryptionMethod{
     }
 
     public void decrypt() {
-        calculateTextLettersFrequency();
         char letter;
         char[] text = getInput().toCharArray();
         for(int i = 0; i < text.length; i++) {
