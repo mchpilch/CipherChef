@@ -17,14 +17,6 @@ public class Monoalphabetic extends EncryptionMethod{
         super.setName("Monoalphabetic");
     }
 
-    public void setInput(String input) {
-        super.setInput(input.toLowerCase());
-    }
-
-    public void setReplacement( Map<Character,Character> replacement) {
-        this.replacement = replacement;
-    }
-
     public void encrypt() {
         char letter;
         char[] text = getInput().toCharArray();
@@ -77,6 +69,20 @@ public class Monoalphabetic extends EncryptionMethod{
                 textLettersCount++;
             }
         }
+    }
+
+    public boolean checkInput(String input) {
+        input = input.toLowerCase();
+        Character character;
+        for (int i = 0; i < input.length(); i++) {
+            character = input.charAt(i);
+            if (!polishLetters.keySet().contains(character) && character != ' ') {
+                System.out.println(character);
+                return false;
+            }
+        }
+        super.setInput(input.toLowerCase());
+        return true;
     }
 
     public void displayTextLettersFrequency() {
@@ -165,5 +171,13 @@ public class Monoalphabetic extends EncryptionMethod{
 
     public Map<Character, Character> getReplacement() {
         return replacement;
+    }
+
+    public void setInput(String input) {
+        super.setInput(input.toLowerCase());
+    }
+
+    public void setReplacement( Map<Character,Character> replacement) {
+        this.replacement = replacement;
     }
 }

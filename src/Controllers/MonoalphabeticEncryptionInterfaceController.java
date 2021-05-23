@@ -176,12 +176,17 @@ public class MonoalphabeticEncryptionInterfaceController {
         Scene scene = new Scene(newRoot);
         scene.getStylesheets().add("CSS/style.css");
         stageTheEventSourceNodeBelongs.setScene(scene);
+        stageTheEventSourceNodeBelongs.setResizable(false);
     }
 
     public void encryptButtonPressed(ActionEvent actionEvent) {
-        monoalphabetic.setInput(plainTextTextArea.getText());
-        monoalphabetic.encrypt();
-        encryptedTextTextArea.setText(monoalphabetic.getOutput());
+        if (monoalphabetic.checkInput(plainTextTextArea.getText())) {
+            monoalphabetic.setInput(plainTextTextArea.getText());
+            monoalphabetic.encrypt();
+            encryptedTextTextArea.setText(monoalphabetic.getOutput());
+        } else {
+            System.out.println("Nieprawidłowy tekst jawny");
+        }
     }
 
     public void saveButtonPressed(ActionEvent actionEvent) {

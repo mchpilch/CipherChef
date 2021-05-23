@@ -173,12 +173,17 @@ public class MonoalphabeticDecryptionInterfaceController {
         Scene scene = new Scene(newRoot);
         scene.getStylesheets().add("CSS/style.css");
         stageTheEventSourceNodeBelongs.setScene(scene);
+        stageTheEventSourceNodeBelongs.setResizable(false);
     }
 
     public void encryptButtonPressed(ActionEvent actionEvent) {
-        monoalphabetic.setInput(encryptedTextTextArea.getText());
-        monoalphabetic.decrypt();
-        plainTextTextArea.setText(monoalphabetic.getOutput());
+        if (monoalphabetic.checkInput(encryptedTextTextArea.getText())) {
+            monoalphabetic.setInput(encryptedTextTextArea.getText());
+            monoalphabetic.decrypt();
+            plainTextTextArea.setText(monoalphabetic.getOutput());
+        } else {
+            System.out.println("Nieprawidłowy szyfrogram");
+        }
     }
 
     public void saveButtonPressed(ActionEvent actionEvent) {

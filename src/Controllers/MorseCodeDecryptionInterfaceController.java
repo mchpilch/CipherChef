@@ -71,6 +71,7 @@ public class MorseCodeDecryptionInterfaceController {
         Scene scene = new Scene(newRoot);
         scene.getStylesheets().add("CSS/style.css");
         stageTheEventSourceNodeBelongs.setScene(scene);
+        stageTheEventSourceNodeBelongs.setResizable(false);
     }
 
     public void decryptButtonPressed(ActionEvent actionEvent) {

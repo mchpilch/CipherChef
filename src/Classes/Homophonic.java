@@ -89,6 +89,37 @@ public class Homophonic extends EncryptionMethod {
         replacementMap.get(letter).add(number);
     }
 
+    public boolean checkPlainText(String input) {
+        input = input.toLowerCase();
+        Character character;
+
+        for (int i = 0; i < input.length(); i++) {
+
+            character = input.charAt(i);
+
+            if ((character < 97 || character > 122) && character != ' ') {
+                return false;
+            }
+
+        }
+
+        return true;
+    }
+
+    public boolean checkCryptogram(String input) {
+        input = input.toLowerCase();
+        String[] inputArray = input.split(" ");
+
+        for (String str : inputArray) {
+            if (str.length() % 2 != 0) {
+                return false;
+            }
+        }
+
+        return true;
+
+    }
+
     public void setInput(String input) {
         super.setInput(input.toLowerCase());
     }

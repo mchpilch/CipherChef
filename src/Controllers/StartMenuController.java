@@ -38,6 +38,7 @@ public class StartMenuController {
         Scene scene = new Scene(newRoot);
         scene.getStylesheets().add("CSS/style.css");
         stageTheEventSourceNodeBelongs.setScene(scene);
+        stageTheEventSourceNodeBelongs.setResizable(false);
     }
 
     public void decryptionButtonPressed(ActionEvent actionEvent) throws IOException { // tutaj otworzy się okno z wyborem metody deszyfrowania
@@ -47,6 +48,7 @@ public class StartMenuController {
         Scene scene = new Scene(newRoot);
         scene.getStylesheets().add("CSS/style.css");
         stageTheEventSourceNodeBelongs.setScene(scene);
+        stageTheEventSourceNodeBelongs.setResizable(false);
     }
 
     public void authorsButtonPressed(ActionEvent actionEvent) {

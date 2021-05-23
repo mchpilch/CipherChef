@@ -99,6 +99,7 @@ public class VigenerEncryptionInterfaceController {
         Scene scene = new Scene(newRoot);
         scene.getStylesheets().add("CSS/style.css");
         stageTheEventSourceNodeBelongs.setScene(scene);
+        stageTheEventSourceNodeBelongs.setResizable(false);
     }
 
     public void keyTextFieldFilled(ActionEvent actionEvent) {

@@ -84,12 +84,17 @@ public class HomophonicEncryptionInterfaceController {
         Scene scene = new Scene(newRoot);
         scene.getStylesheets().add("CSS/style.css");
         stageTheEventSourceNodeBelongs.setScene(scene);
+        stageTheEventSourceNodeBelongs.setResizable(false);
     }
 
     public void encryptButtonPressed(ActionEvent actionEvent) {
-        homophonic.setInput(plainTextTextArea.getText());
-        homophonic.encrypt();
-        encryptedTextTextArea.setText(homophonic.getOutput());
+        if (homophonic.checkPlainText(plainTextTextArea.getText())) {
+            homophonic.setInput(plainTextTextArea.getText());
+            homophonic.encrypt();
+            encryptedTextTextArea.setText(homophonic.getOutput());
+        } else {
+            System.out.println("Nieprawidłowy tekst jawny");
+        }
     }
 
     public void saveButtonPressed(ActionEvent actionEvent) {

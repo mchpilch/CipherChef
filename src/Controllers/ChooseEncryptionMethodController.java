@@ -49,6 +49,7 @@ public class ChooseEncryptionMethodController {
                 Scene scene = new Scene(newRoot);
                 scene.getStylesheets().add("CSS/style.css");
                 stageTheEventSourceNodeBelongs.setScene(scene);
+                stageTheEventSourceNodeBelongs.setResizable(false);
             }
         };
 
@@ -84,18 +85,7 @@ public class ChooseEncryptionMethodController {
 
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         stageTheEventSourceNodeBelongs.setScene(new Scene(newRoot));
+        stageTheEventSourceNodeBelongs.setResizable(false);
     }
 
-    /*public void chooseEncryptionMethodComboBoxOnAction(ActionEvent actionEvent) throws IOException {
-        EncryptionMethod choosedMethod = (EncryptionMethod) chooseEncryptionMethodComboBox.getValue();
-        String methodName = choosedMethod.getName();
-        String path = "FXMLFiles/" + methodName + "EncryptionInterface.fxml";
-
-        Parent newRoot = FXMLLoader.load(getClass().getResource(path));
-
-        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        Scene scene = new Scene(newRoot);
-        scene.getStylesheets().add("CSS/style.css");
-        stageTheEventSourceNodeBelongs.setScene(scene);
-    }*/
 }

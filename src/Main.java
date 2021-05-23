@@ -23,6 +23,7 @@ public class Main extends Application {
         primaryStage.setTitle("CipherChef");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        primaryStage.setResizable(false);
     }
 
 

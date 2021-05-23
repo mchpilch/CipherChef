@@ -87,12 +87,17 @@ public class HomophonicDecryptionInterfaceController {
         Scene scene = new Scene(newRoot);
         scene.getStylesheets().add("CSS/style.css");
         stageTheEventSourceNodeBelongs.setScene(scene);
+        stageTheEventSourceNodeBelongs.setResizable(false);
     }
 
     public void encryptButtonPressed(ActionEvent actionEvent) {
-        homophonic.setInput(encryptedTextTextArea.getText());
-        homophonic.decrypt();
-        plainTextTextArea.setText(homophonic.getOutput());
+        if (homophonic.checkCryptogram(encryptedTextTextArea.getText())) {
+            homophonic.setInput(encryptedTextTextArea.getText());
+            homophonic.decrypt();
+            plainTextTextArea.setText(homophonic.getOutput());
+        } else {
+            System.out.println("Nieprawidłowy szyfrogram");
+        }
     }
 
     public void saveButtonPressed(ActionEvent actionEvent) {
