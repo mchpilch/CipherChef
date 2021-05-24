@@ -22,6 +22,7 @@ import java.io.IOException;
 
 public class HomophonicEncryptionInterfaceController {
 
+    Alert alert;
     private Homophonic homophonic;
     private int letterCount;
 
@@ -46,6 +47,7 @@ public class HomophonicEncryptionInterfaceController {
     private TextField replacementTextField[];
 
     public HomophonicEncryptionInterfaceController() {
+        alert = new Alert(Alert.AlertType.ERROR);
         homophonic = new Homophonic();
         letterCount = homophonic.getLetterCount();
         letterLabel = new Label[letterCount];
@@ -93,7 +95,9 @@ public class HomophonicEncryptionInterfaceController {
             homophonic.encrypt();
             encryptedTextTextArea.setText(homophonic.getOutput());
         } else {
-            System.out.println("Nieprawidłowy tekst jawny");
+            alert.setTitle("Input Error");
+            alert.setContentText("Nieprawidłowy tekst jawny");
+            alert.showAndWait();
         }
     }
 

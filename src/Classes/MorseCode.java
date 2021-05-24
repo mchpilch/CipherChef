@@ -217,6 +217,32 @@ public class MorseCode extends EncryptionMethod {
         }
     }
 
+    public boolean checkPlainText(String input) {
+        input = input.toLowerCase();
+        Character character;
+
+        for (int i = 0; i < input.length(); i++) {
+            character = input.charAt(i);
+            if (!letterToMorse.containsKey(character)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean checkCryptogram(String input) {
+        input = input.toLowerCase();
+        String[] inputArray = input.split(" ");
+
+        for (String str : inputArray) {
+            if (!letterToMorse.containsValue(str)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     @Override
     public void setInput(String input) {
         super.setInput(input.toLowerCase());

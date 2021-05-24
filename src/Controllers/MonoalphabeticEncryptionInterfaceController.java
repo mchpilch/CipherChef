@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -43,6 +44,7 @@ public class MonoalphabeticEncryptionInterfaceController {
     private TextArea encryptedTextTextArea;
 
     private StackPane gridStackPane[][];
+    Alert alert;
     private Monoalphabetic monoalphabetic;
     int lettersCount;
     Map<Label, ComboBox> replacement;
@@ -52,6 +54,7 @@ public class MonoalphabeticEncryptionInterfaceController {
     //private boolean modification;
 
     public MonoalphabeticEncryptionInterfaceController() {
+        alert = new Alert(Alert.AlertType.ERROR);
         monoalphabetic = new Monoalphabetic();
         lettersCount = monoalphabetic.getPolishLettersCount();
         gridStackPane = new StackPane[4][lettersCount/2 + 1];
@@ -180,12 +183,14 @@ public class MonoalphabeticEncryptionInterfaceController {
     }
 
     public void encryptButtonPressed(ActionEvent actionEvent) {
-        if (monoalphabetic.checkInput(plainTextTextArea.getText())) {
+        if (monoalphabetic.checkInput(plainTextTextArea.getText()) && !plainTextTextArea.getText().equals("")) {
             monoalphabetic.setInput(plainTextTextArea.getText());
             monoalphabetic.encrypt();
             encryptedTextTextArea.setText(monoalphabetic.getOutput());
         } else {
-            System.out.println("Nieprawidłowy tekst jawny");
+            alert.setTitle("Input Error");
+            alert.setContentText("Nieprawidłowy tekst jawny");
+            alert.showAndWait();
         }
     }
 

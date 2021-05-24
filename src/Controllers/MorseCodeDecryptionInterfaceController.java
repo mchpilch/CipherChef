@@ -8,6 +8,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
@@ -31,11 +32,13 @@ public class MorseCodeDecryptionInterfaceController {
     @FXML
     private VBox rightColumnVBox;
 
+    Alert alert;
     private MorseCode morseCode;
     private Label[] legendLabel;
     private int charactersCount;
 
     public MorseCodeDecryptionInterfaceController() {
+        alert = new Alert(Alert.AlertType.ERROR);
         morseCode = new MorseCode();
         charactersCount = morseCode.getMorseToLetter().size();
         legendLabel = new Label[charactersCount];
@@ -75,9 +78,15 @@ public class MorseCodeDecryptionInterfaceController {
     }
 
     public void decryptButtonPressed(ActionEvent actionEvent) {
-        morseCode.setInput(encryptedTextTextArea.getText());
-        morseCode.decrypt();
-        plainTextTextArea.setText(morseCode.getOutput());
+        if (morseCode.checkCryptogram(encryptedTextTextArea.getText()) && !encryptedTextTextArea.getText().equals("")) {
+            morseCode.setInput(encryptedTextTextArea.getText());
+            morseCode.decrypt();
+            plainTextTextArea.setText(morseCode.getOutput());
+        } else {
+            alert.setTitle("Input Error");
+            alert.setContentText("Nieprawidłowy szyfrogram");
+            alert.showAndWait();
+        }
     }
 
     public void saveButtonPressed(ActionEvent actionEvent) {

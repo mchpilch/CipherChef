@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -40,6 +41,7 @@ public class MonoalphabeticDecryptionInterfaceController {
     private TextArea encryptedTextTextArea;
 
     private StackPane gridStackPane[][];
+    Alert alert;
     private Monoalphabetic monoalphabetic;
     int lettersCount;
     Map<Label, ComboBox> replacement;
@@ -49,6 +51,7 @@ public class MonoalphabeticDecryptionInterfaceController {
     //private boolean modification;
 
     public MonoalphabeticDecryptionInterfaceController() {
+        alert = new Alert(Alert.AlertType.ERROR);
         monoalphabetic = new Monoalphabetic();
         lettersCount = monoalphabetic.getPolishLettersCount();
         gridStackPane = new StackPane[4][lettersCount/2 + 1];
@@ -177,12 +180,14 @@ public class MonoalphabeticDecryptionInterfaceController {
     }
 
     public void encryptButtonPressed(ActionEvent actionEvent) {
-        if (monoalphabetic.checkInput(encryptedTextTextArea.getText())) {
+        if (monoalphabetic.checkInput(encryptedTextTextArea.getText()) && !encryptedTextTextArea.getText().equals("")) {
             monoalphabetic.setInput(encryptedTextTextArea.getText());
             monoalphabetic.decrypt();
             plainTextTextArea.setText(monoalphabetic.getOutput());
         } else {
-            System.out.println("Nieprawidłowy szyfrogram");
+            alert.setTitle("Input Error");
+            alert.setContentText("Nieprawidłowy szyfrogram");
+            alert.showAndWait();
         }
     }
 

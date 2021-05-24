@@ -35,7 +35,7 @@
             <GridPane fx:id="matrixGridPane" layoutX="996.0" layoutY="14.0" prefHeight="250.0" prefWidth="250.0" style="-fx-border-width: 2; -fx-border-color: #0095CB; -fx-border-insets: 5; -fx-border-radius: 5; -fx-grid-lines-visible: true; -fx-border-style: solid inside;">
             </GridPane>
             <Separator layoutX="618.0" layoutY="273.0" orientation="VERTICAL" prefHeight="355.0" prefWidth="25.0" />
-            <TextField fx:id="keyTextField" layoutX="126.0" layoutY="201.0" onAction="#keyTextFieldFilled" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #999999;" />
+            <TextField fx:id="keyTextField" layoutX="126.0" layoutY="201.0" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #999999;" />
             <Button fx:id="encryptButton" layoutX="541.0" layoutY="194.0" mnemonicParsing="false" onAction="#encryptButtonPressed" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 5; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="Szyfruj &gt;">
                <font>
                   <Font size="22.0" />

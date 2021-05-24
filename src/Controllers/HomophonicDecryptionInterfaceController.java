@@ -8,10 +8,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -25,6 +22,7 @@ import java.io.IOException;
 
 public class HomophonicDecryptionInterfaceController {
 
+    Alert alert;
     private Homophonic homophonic;
     private int letterCount;
 
@@ -49,6 +47,7 @@ public class HomophonicDecryptionInterfaceController {
     private TextField replacementTextField[];
 
     public HomophonicDecryptionInterfaceController() {
+        alert = new Alert(Alert.AlertType.ERROR);
         homophonic = new Homophonic();
         letterCount = homophonic.getLetterCount();
         letterLabel = new Label[letterCount];
@@ -96,7 +95,9 @@ public class HomophonicDecryptionInterfaceController {
             homophonic.decrypt();
             plainTextTextArea.setText(homophonic.getOutput());
         } else {
-            System.out.println("Nieprawidłowy szyfrogram");
+            alert.setTitle("Input Error");
+            alert.setContentText("Nieprawidłowy szyfrogram");
+            alert.showAndWait();
         }
     }
 

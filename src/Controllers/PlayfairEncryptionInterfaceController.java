@@ -4,10 +4,10 @@ import Classes.Playfair;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -16,7 +16,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -36,12 +35,14 @@ public class PlayfairEncryptionInterfaceController {
     @FXML
     private GridPane matrixGridPane;
 
+    Alert alert;
     private Playfair playfair;
     private int matrixDimension;
     private StackPane[][] matrixStackPane;
     private Label[][] matrixCharactersLabel;
 
     public PlayfairEncryptionInterfaceController() {
+        alert = new Alert(Alert.AlertType.ERROR);
         playfair = new Playfair();
         matrixDimension = 5;
         matrixStackPane = new StackPane[matrixDimension][matrixDimension];
@@ -114,14 +115,23 @@ public class PlayfairEncryptionInterfaceController {
         stageTheEventSourceNodeBelongs.setResizable(false);
     }
 
-    public void keyTextFieldFilled(ActionEvent actionEvent) {
-    }
-
     public void encryptButtonPressed(ActionEvent actionEvent) {
-        playfair.setKey(keyTextField.getText());
-        playfair.setInput(plainTextTextArea.getText());
-        playfair.encrypt();
-        refresh();
+        if (playfair.checkInput(plainTextTextArea.getText()) && !plainTextTextArea.getText().equals("")) {
+            if (playfair.checkInput(keyTextField.getText()) && !keyTextField.getText().equals("")) {
+                playfair.setKey(keyTextField.getText());
+                playfair.setInput(plainTextTextArea.getText());
+                playfair.encrypt();
+                refresh();
+            } else {
+                alert.setTitle("Input Error");
+                alert.setContentText("Nieprawidłowy klucz");
+                alert.showAndWait();
+            }
+        } else {
+            alert.setTitle("Input Error");
+            alert.setContentText("Nieprawidłowy tekst jawny");
+            alert.showAndWait();
+        }
     }
 
     public void saveButtonPressed(ActionEvent actionEvent) {

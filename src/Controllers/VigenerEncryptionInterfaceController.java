@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -33,12 +34,14 @@ public class VigenerEncryptionInterfaceController {
     @FXML
     private GridPane matrixGridPane;
 
+    Alert alert;
     private Vigener vigener;
     private int matrixDimension;
     private StackPane[][] matrixStackPane;
     private Label[][] matrixCharactersLabel;
 
     public VigenerEncryptionInterfaceController() {
+        alert = new Alert(Alert.AlertType.ERROR);
         vigener = new Vigener();
         matrixDimension = vigener.getAlphabet().length();
         matrixStackPane = new StackPane[matrixDimension][matrixDimension];
@@ -106,10 +109,22 @@ public class VigenerEncryptionInterfaceController {
     }
 
     public void encryptButtonPressed(ActionEvent actionEvent) {
-        vigener.setInput(plainTextTextArea.getText());
-        vigener.setKey(keyTextField.getText());
-        vigener.encrypt();
-        encryptedTextTextArea.setText(vigener.getOutput());
+        if (vigener.checkInput(plainTextTextArea.getText()) && !plainTextTextArea.getText().equals("")) {
+            if (vigener.checkInput(keyTextField.getText()) && !keyTextField.getText().equals("")) {
+                vigener.setInput(plainTextTextArea.getText());
+                vigener.setKey(keyTextField.getText());
+                vigener.encrypt();
+                encryptedTextTextArea.setText(vigener.getOutput());
+            } else {
+                alert.setTitle("Input Error");
+                alert.setContentText("Nieprawidłowy klucz");
+                alert.showAndWait();
+            }
+        } else {
+            alert.setTitle("Input Error");
+            alert.setContentText("Nieprawidłowy tekst jawny");
+            alert.showAndWait();
+        }
     }
 
     public void saveButtonPressed(ActionEvent actionEvent) {

@@ -57,6 +57,22 @@ public class AES extends EncryptionMethod{
         setOutputString(new String(plainText));
     }
 
+    public boolean checkKey(String key) {
+        if (key.length() != 16) {
+            System.out.println(key.length());
+            return false;
+        }
+        return true;
+    }
+
+    public boolean checkIv(String iv) {
+        if (iv.length() != 24) {
+            return false;
+        }
+
+        return true;
+    }
+
     public void setAlgorithm(String algorithm) {
         this.algorithm = algorithm;
     }

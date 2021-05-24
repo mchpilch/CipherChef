@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
@@ -27,9 +28,11 @@ public class RSAEncryptionInterfaceController {
     @FXML
     private TextArea encryptedTextTextArea;
 
+    Alert alert;
     private RSA rsa;
 
     public RSAEncryptionInterfaceController() {
+        alert = new Alert(Alert.AlertType.ERROR);
         rsa = new RSA();
     }
 

@@ -129,7 +129,7 @@ public class Playfair extends EncryptionMethod{
         String stringToMatrix = removeDuplicateCharacters(keyWithoutDup + alphabet);
 
         if ( stringToMatrix.length() != 25 ) {
-            System.out.println("Przyps");
+            System.out.println("Przyps" + stringToMatrix);
         }else {
             int index = 0;
 
@@ -227,6 +227,21 @@ public class Playfair extends EncryptionMethod{
         return position;
     }
 
+    public boolean checkInput(String input) {
+
+        input = input.toLowerCase();
+        Character character;
+
+        for (int i = 0; i < input.length(); i++) {
+            character = input.charAt(i);
+            if ((character < 97 || character > 122) && character != ' ') {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public void displayMatrix() {
         for ( int i = 0; i < matrix.length; i++) {
 
@@ -244,6 +259,7 @@ public class Playfair extends EncryptionMethod{
     }
 
     public void setKey(String key) {
+        key = key.toLowerCase().replace('j', 'i');
         super.setKey(key);
         generateMatrix();
     }

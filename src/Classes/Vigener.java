@@ -141,6 +141,21 @@ public class Vigener extends EncryptionMethod {
     setOutput(decryptedText);
     }
 
+    public boolean checkInput(String input) {
+
+        input = input.toLowerCase();
+        Character character;
+
+        for (int i = 0; i < input.length(); i++) {
+            character = input.charAt(i);
+            if ((character < 97 || character > 122) && character != ' ') {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     @Override
     public void setInput(String input) {
         String plainTextNoSpaceces = input.replaceAll("\\s+","");//usuwa spacje itp.

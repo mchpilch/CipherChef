@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -41,10 +42,12 @@ public class AESEncryptionInterfaceController {
     @FXML
     private TextField ivTextField;
 
+    Alert alert;
     private AES aes;
     private ArrayList<String> availableAlgorithms;
 
     public AESEncryptionInterfaceController() {
+        alert = new Alert(Alert.AlertType.ERROR);
         aes = new AES();
         availableAlgorithms = new ArrayList<String>();
         addAlgorithms();
@@ -87,13 +90,25 @@ public class AESEncryptionInterfaceController {
     }
 
     public void runButtonPressed(ActionEvent actionEvent) throws InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        aes.setKeyString(keyTextField.getText());
-        aes.setInputString(plainTextTextArea.getText());
-        if (aes.getAlgorithm() != "ECB") {
-            aes.setIv(ivTextField.getText());
+        if (!plainTextTextArea.getText().equals("") && !keyTextField.getText().equals("") && aes.checkKey(keyTextField.getText())) {
+            aes.setKeyString(keyTextField.getText());
+            aes.setInputString(plainTextTextArea.getText());
+            if (aes.getAlgorithm() != "ECB") {
+                if (!ivTextField.getText().equals("") && aes.checkIv(ivTextField.getText())) {
+                    aes.setIv(ivTextField.getText());
+                } else {
+                    alert.setTitle("Input Error");
+                    alert.setContentText("Nieprawidłowy wektor inicjalizacyjny");
+                    alert.showAndWait();
+                }
+            }
+            aes.encrypt();
+            encryptedTextTextArea.setText(aes.getOutputString());
+        } else {
+            alert.setTitle("Input Error");
+            alert.setContentText("Nieprawidłowy klucz bądz tekst jawny");
+            alert.showAndWait();
         }
-        aes.encrypt();
-        encryptedTextTextArea.setText(aes.getOutputString());
     }
 
     public void saveButtonPressed(ActionEvent actionEvent) {

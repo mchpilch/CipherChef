@@ -8,6 +8,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
@@ -31,11 +32,13 @@ public class MorseCodeEncryptionInterfaceController {
     @FXML
     private VBox rightColumnVBox;
 
+    Alert alert;
     private MorseCode morseCode;
     private Label[] legendLabel;
     private int charactersCount;
 
     public MorseCodeEncryptionInterfaceController() {
+        alert = new Alert(Alert.AlertType.ERROR);
         morseCode = new MorseCode();
         charactersCount = morseCode.getMorseToLetter().size();
         legendLabel = new Label[charactersCount];
@@ -75,9 +78,15 @@ public class MorseCodeEncryptionInterfaceController {
     }
 
     public void encryptButtonPressed(ActionEvent actionEvent) {
-        morseCode.setInput(plainTextTextArea.getText());
-        morseCode.encrypt();
-        encryptedTextTextArea.setText(morseCode.getOutput());
+        if (morseCode.checkPlainText(plainTextTextArea.getText()) && !plainTextTextArea.getText().equals("")) {
+            morseCode.setInput(plainTextTextArea.getText());
+            morseCode.encrypt();
+            encryptedTextTextArea.setText(morseCode.getOutput());
+        } else {
+            alert.setTitle("Input Error");
+            alert.setContentText("Nieprawidłowy tekst jawny");
+            alert.showAndWait();
+        }
     }
 
     public void saveButtonPressed(ActionEvent actionEvent) {
