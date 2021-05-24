@@ -51,8 +51,10 @@ public class PlayfairDecryptionInterfaceController {
 
     @FXML
     void initialize() {
+        plainTextTextArea.setEditable(false);
+        plainTextTextArea.setWrapText(true);
+        encryptedTextTextArea.setWrapText(true);
         initializeMatrix();
-        System.out.println(matrixStackPane[4][4].getChildren());
     }
 
     void refresh() {

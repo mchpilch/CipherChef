@@ -50,6 +50,9 @@ public class VigenerEncryptionInterfaceController {
 
     @FXML
     void initialize() {
+        encryptedTextTextArea.setEditable(false);
+        encryptedTextTextArea.setWrapText(true);
+        plainTextTextArea.setWrapText(true);
         initializeMatrix();
         displayMatrix();
     }

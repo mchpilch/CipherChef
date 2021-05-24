@@ -51,6 +51,9 @@ public class VigenerDecryptionInterfaceController {
 
     @FXML
     void initialize() {
+        plainTextTextArea.setEditable(false);
+        plainTextTextArea.setWrapText(true);
+        encryptedTextTextArea.setWrapText(true);
         initializeMatrix();
         displayMatrix();
     }

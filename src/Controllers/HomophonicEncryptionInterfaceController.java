@@ -56,6 +56,9 @@ public class HomophonicEncryptionInterfaceController {
 
     @FXML
     void initialize() {
+        encryptedTextTextArea.setEditable(false);
+        encryptedTextTextArea.setWrapText(true);
+        plainTextTextArea.setWrapText(true);
         setReplacementAnchorPane.setVisible(false);
         setReplacementAnchorPane.setDisable(true);
         initializeReplacementWindow();

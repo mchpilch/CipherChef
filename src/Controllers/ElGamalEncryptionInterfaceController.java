@@ -36,6 +36,9 @@ public class ElGamalEncryptionInterfaceController {
 
     @FXML
     void initialize() {
+        encryptedTextTextArea.setEditable(false);
+        encryptedTextTextArea.setWrapText(true);
+        plainTextTextArea.setWrapText(true);
         qTextField.getStyleClass().add("rsa-text-field");
         //qTextField.getStyleClass().add();
     }

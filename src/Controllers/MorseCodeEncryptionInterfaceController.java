@@ -46,6 +46,9 @@ public class MorseCodeEncryptionInterfaceController {
 
     @FXML
     void initialize(){
+        encryptedTextTextArea.setEditable(false);
+        encryptedTextTextArea.setWrapText(true);
+        plainTextTextArea.setWrapText(true);
         initializeLegend();
     }
 

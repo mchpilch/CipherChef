@@ -72,6 +72,10 @@ public class MonoalphabeticDecryptionInterfaceController {
 
     @FXML
     void initialize() {
+        plainTextTextArea.setEditable(false);
+        plainTextTextArea.setWrapText(true);
+        encryptedTextTextArea.setWrapText(true);
+
         timeline = new Timeline(
                 new KeyFrame(Duration.seconds(0.2), e -> {  // <----- Wątek
                     refresh();

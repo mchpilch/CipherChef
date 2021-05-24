@@ -54,6 +54,9 @@ public class AESDecryptionInterfaceController {
 
     @FXML
     void initialize() {
+        plainTextTextArea.setEditable(false);
+        plainTextTextArea.setWrapText(true);
+        encryptedTextTextArea.setWrapText(true);
         disableNode(ivHBox);
         chooseAlgorithmComboBox.getItems().addAll(availableAlgorithms);
     }
