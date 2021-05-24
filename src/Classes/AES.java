@@ -29,22 +29,32 @@ public class AES extends EncryptionMethod{
 
     public void encrypt()
             throws InvalidKeyException, NoSuchPaddingException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException {
+
         Cipher cipher = Cipher.getInstance("AES/" + algorithm + "/PKCS5Padding");
-        if (algorithm.equals("ECB")) cipher.init(Cipher.ENCRYPT_MODE, secretKey);
-        else cipher.init(Cipher.ENCRYPT_MODE, secretKey, iv);
+
+        if (algorithm.equals("ECB")) {
+            cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+        } else {
+            cipher.init(Cipher.ENCRYPT_MODE, secretKey, iv);
+        }
+
         byte[] cipherText = cipher.doFinal(inputString.getBytes(StandardCharsets.UTF_8));
         setOutputString(Base64.getEncoder().encodeToString(cipherText));
-        //System.out.println(getOutputString());
     }
 
     public void decrypt()
             throws InvalidKeyException, NoSuchPaddingException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException {
+
         Cipher cipher = Cipher.getInstance("AES/" + algorithm + "/PKCS5Padding");
-        if (algorithm.equals("ECB")) cipher.init(Cipher.DECRYPT_MODE, secretKey);
-        else cipher.init(Cipher.DECRYPT_MODE, secretKey, iv);
+
+        if (algorithm.equals("ECB")) {
+            cipher.init(Cipher.DECRYPT_MODE, secretKey);
+        } else {
+            cipher.init(Cipher.DECRYPT_MODE, secretKey, iv);
+        }
+
         byte[] plainText = cipher.doFinal(Base64.getDecoder().decode(inputString.getBytes(StandardCharsets.UTF_8)));
         setOutputString(new String(plainText));
-        //System.out.println(getOutputString());
     }
 
     public void setAlgorithm(String algorithm) {

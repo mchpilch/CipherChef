@@ -127,10 +127,12 @@ public class Playfair extends EncryptionMethod{
     public void generateMatrix() {
         String keyWithoutDup = removeDuplicateCharacters(getKey());
         String stringToMatrix = removeDuplicateCharacters(keyWithoutDup + alphabet);
+
         if ( stringToMatrix.length() != 25 ) {
             System.out.println("Przyps");
         }else {
             int index = 0;
+
             for (int i = 0; i < matrix.length; i++) {
                 for (int j = 0; j < matrix[0].length; j++) {
                     matrix[i][j] = stringToMatrix.charAt(index);
@@ -227,9 +229,12 @@ public class Playfair extends EncryptionMethod{
 
     public void displayMatrix() {
         for ( int i = 0; i < matrix.length; i++) {
+
             for (int j = 0; j < matrix[0].length; j++) {
+
                 System.out.print(matrix[i][j] + " ");
             }
+
             System.out.println();
         }
     }

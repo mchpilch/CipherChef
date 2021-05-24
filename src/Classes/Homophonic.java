@@ -11,11 +11,10 @@ public class Homophonic extends EncryptionMethod {
         replacementMap = new HashMap<Character, ArrayList<Integer>>();
         constructReplacementMap();
         setDefaultReplacement();
-        //displayReplacement();
         super.setName("Homophonic");
     }
 
-    private void constructReplacementMap() { //konstuujemy mapę z 26 znakami i list dla każdego znaku
+    private void constructReplacementMap() { //konstruujemy mapę z 26 znakami i liste dla każdego znaku
         for (int i = 97; i < 97 + 26; i++) {
             replacementMap.put((char) i, new ArrayList<Integer>());
         }
@@ -88,6 +87,37 @@ public class Homophonic extends EncryptionMethod {
     private void addReplacement(String strNumber, char letter) {
         int number = Integer.parseInt(strNumber);
         replacementMap.get(letter).add(number);
+    }
+
+    public boolean checkPlainText(String input) {
+        input = input.toLowerCase();
+        Character character;
+
+        for (int i = 0; i < input.length(); i++) {
+
+            character = input.charAt(i);
+
+            if ((character < 97 || character > 122) && character != ' ') {
+                return false;
+            }
+
+        }
+
+        return true;
+    }
+
+    public boolean checkCryptogram(String input) {
+        input = input.toLowerCase();
+        String[] inputArray = input.split(" ");
+
+        for (String str : inputArray) {
+            if (str.length() % 2 != 0) {
+                return false;
+            }
+        }
+
+        return true;
+
     }
 
     public void setInput(String input) {

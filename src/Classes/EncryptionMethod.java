@@ -48,7 +48,4 @@ public class EncryptionMethod {
         this.name = name;
     }
 
-    public void displayOutput() {}
-    public void displayInput() {}
-    public void displayKey() {}
 }

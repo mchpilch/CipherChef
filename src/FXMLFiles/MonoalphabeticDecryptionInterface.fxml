@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #373737; -fx-border-width: 10; -fx-border-color: #0095CB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MonoalphabeticDecryptionInterfaceController">
+<StackPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #373737; -fx-border-width: 10; -fx-border-color: #0095CB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MonoalphabeticDecryptionInterfaceController">
    <children>
       <AnchorPane fx:id="encryptedTextArea" prefHeight="400.0" prefWidth="600.0">
          <children>

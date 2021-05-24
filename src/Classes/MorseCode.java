@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MorseCode extends EncryptionMethod{
+public class MorseCode extends EncryptionMethod {
 
-   // Map<Character, String> letterToMorse = new HashMap<Character, String>();
     Map<String, Character> morseToLetter = new HashMap<String, Character>();
+    Map<Character, String> letterToMorse = new HashMap<Character, String>();
 
     public MorseCode(String plainText) {
         setLetterToMorse();
@@ -25,7 +25,6 @@ public class MorseCode extends EncryptionMethod{
         setLetterToMorse();
         setMorseToLetter();
     }
-    Map<Character, String> letterToMorse = new HashMap<Character, String>();
     public void setLetterToMorse() {// . -
         letterToMorse.put('a', ".-");
         letterToMorse.put('ą', ".-");
@@ -117,8 +116,6 @@ public class MorseCode extends EncryptionMethod{
         morseToLetter.put("----.",'9');
         morseToLetter.put("-----",'0');
 
-
-        //morseToLetter.put(" ", ' ');
         morseToLetter.put("/", ' ');
     }
     //getinput to teskt do zaszyfrowania
@@ -146,9 +143,8 @@ public class MorseCode extends EncryptionMethod{
             }else{
                 letter += messageInMorseWithSpaces.charAt(i);
             }
-            //System.out.println("i " + i + " letter " + letter + " " + morseCodeMessage);//sprawdzanie
         }
-        //System.out.println(morseCodeMessage);//sprawdzanie
+
         int counter = 0;
         while(counter < morseCodeMessage.size()){
             if(morseCodeMessage.get(counter) == ""){
@@ -157,7 +153,6 @@ public class MorseCode extends EncryptionMethod{
                 counter++;
             }
         }
-        //System.out.println(morseCodeMessage);//sprawdzanie
 
         for(int i = 0; i < morseCodeMessage.size();i++){//porwnuje przechowywane ciagi z arraylisty do mapy i zamieniam na normalna wiadomosc
                 String cellContent = morseCodeMessage.get(i);
@@ -180,8 +175,8 @@ public class MorseCode extends EncryptionMethod{
     }
 
     public void soundMorseCode(String sequence) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-        File long_sig = new File("src/long_signal.wav");
-        File short_sig = new File("src/short_signal.wav");
+        File long_sig = new File("src/Audio/long_signal.wav");
+        File short_sig = new File("src/Audio/short_signal.wav");
         AudioInputStream audioStreamLong = AudioSystem.getAudioInputStream(long_sig);
         AudioInputStream audioStreamShort = AudioSystem.getAudioInputStream(short_sig);
         Clip clip_long = AudioSystem.getClip();
@@ -195,7 +190,6 @@ public class MorseCode extends EncryptionMethod{
         long lenOflong = clip_long.getMicrosecondLength()/1000;//μs to ms
 
         //pętla iterująca po wiadomości i odtwarzająca dźwięk
-
 
         for(int i = 0; i < sequence.length(); i++){
             String currentSign = String.valueOf(sequence.charAt(i));
