@@ -89,6 +89,12 @@ public class Main extends Application {
 
 
         //morseCode.soundMorseCode("... --- ... / .--- . -.. -. --- ... - -.- .- ");
+
+
+        ElGamal elGamal = new ElGamal("abca",11);
+        elGamal.encrypt();
+        System.out.println(elGamal.getOutput());
+
         launch(args);
     }
 }
