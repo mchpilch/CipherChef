@@ -49,8 +49,12 @@ public class ElGamalEncryptionInterfaceController {
 
     public void runButtonPressed(ActionEvent actionEvent) {
         elGamal.setQ(Integer.valueOf(qTextField.getText()));
+        elGamal.setA(Integer.valueOf(qTextField.getText()));
+        elGamal.setX(Integer.valueOf(qTextField.getText()));
+        elGamal.setY(Integer.valueOf(qTextField.getText()),elGamal.getA(),elGamal.getX());
         elGamal.setMessage(plainTextTextArea.getText());
         elGamal.encrypt();
+        elGamal.getInfo();
         encryptedTextTextArea.setText(elGamal.getOutput());
     }
 

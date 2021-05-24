@@ -14,37 +14,18 @@ public class ElGamal extends EncryptionMethod{
         super.setName("ElGamal");
     }
 
-    public ElGamal(String plaintext, int pierwsza) {//q do 19
+  /*  public ElGamal(String plaintext, int pierwsza) {//q do 19
         //wybieramy liczbę pierwszą q i jej pierwiastek pierwotny a
         //int q = 11; //liczba pierwsza
-        stringToNumbers(plaintext);
-        setQ(pierwsza);
-        setA(pierwsza);
-        setX();
-        setY(pierwsza,getA(),getX());
+        //stringToNumbers(plaintext);
+//        setQ(pierwsza);
+//        setA(pierwsza);
+//        setX();
+//        setY(pierwsza,getA(),getX());
 
-        System.out.println("klucz publiczny (q, a, y) -> " + "(" + q +"," + a +"," + y +")");
-        System.out.println("klucz prywatny (x) -> " + "(" + x  +")");
-
-//        int m = 2; //m to plaintext zamieniony na liczbe
-//        int q = pierwsza;
-//        System.out.println("q " + q);
-//        int a = smallestPrimitiveRoot(q);
-//        System.out.println("a " + a);
-//        //następnie losowo liczbę x, mniejszą od q-1
-//        Random random = new Random();
-//        int x = random.nextInt(q-2)+1;//losowa liczba od 1 do q-2 łącznie
-//        System.out.println("x " + x);
-//        //obliczamy liczbę y = a^x mod q
-//        int y =  (int)Math.pow(a,x)%q;
-//        System.out.println("y " + y);
-//        //klucz publiczny to zbiór:  (q, a, y)
 //        System.out.println("klucz publiczny (q, a, y) -> " + "(" + q +"," + a +"," + y +")");
 //        System.out.println("klucz prywatny (x) -> " + "(" + x  +")");
-//        DoubleCCryptogram sth = oneNumberCoding(m);
-//        System.out.println(sth);
-//        System.out.println("C1 -> " + "(" + sth.getC1() +")" +  " C2 -> " + "(" + sth.getC2()+")");
-    }
+    }*/
 
     public void setQ(int q) {
         this.q = q;
@@ -52,7 +33,7 @@ public class ElGamal extends EncryptionMethod{
     public void setA(int q) {
         this.a = smallestPrimitiveRoot(q);
     }
-    public void setX() {
+    public void setX(int q) {
         Random random = new Random();
         this.x = random.nextInt(q-2)+1;//losowa liczba od 1 do q-2 łącznie
     }
@@ -87,6 +68,11 @@ public class ElGamal extends EncryptionMethod{
             //System.out.println(encrypted);
         }
         setOutput(encrypted);
+    }
+
+    public void getInfo(){
+        System.out.println("klucz publiczny (q, a, y) -> " + "(" + q +"," + a +"," + y +")");//czemu to dziala w okienu bez getterow skoro tu jest np. q a nie getQ? sprawdzić kiedyś
+        System.out.println("klucz prywatny (x) -> " + "(" + x  +")");
     }
 
     public void stringToNumbers(String str){
