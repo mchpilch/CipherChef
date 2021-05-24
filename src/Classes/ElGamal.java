@@ -10,6 +10,10 @@ public class ElGamal extends EncryptionMethod{
     ArrayList<DoubleCCryptogram> messageEncrypted = new ArrayList<DoubleCCryptogram>();
     private int q,a,y,x;
 
+    public ElGamal(){
+        super.setName("ElGamal");
+    }
+
     public ElGamal(String plaintext, int pierwsza) {//q do 19
         //wybieramy liczbę pierwszą q i jej pierwiastek pierwotny a
         //int q = 11; //liczba pierwsza
@@ -187,6 +191,10 @@ public class ElGamal extends EncryptionMethod{
             }
         }
         return true;
+    }
+
+    public void setMessage(String str) {
+        stringToNumbers(str);
     }
 
 }

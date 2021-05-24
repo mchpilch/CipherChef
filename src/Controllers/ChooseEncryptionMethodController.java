@@ -60,6 +60,7 @@ public class ChooseEncryptionMethodController {
         encryptionMethods.add(new Vigener());
         encryptionMethods.add(new AES());
         encryptionMethods.add(new RSA());
+        encryptionMethods.add(new ElGamal());
 
         button = new Button[encryptionMethods.size()];
     }

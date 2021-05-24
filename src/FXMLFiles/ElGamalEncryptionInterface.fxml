@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #373737; -fx-border-width: 10; -fx-border-color: #0095CB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ElGamalEncryptionInterfaceController">
+    <children>
+        <AnchorPane fx:id="encryptedTextArea" prefHeight="400.0" prefWidth="600.0">
+            <children>
+                <Label layoutX="581.0" layoutY="9.0" text="ElGamal" textFill="#0095cb">
+                    <font>
+                        <Font size="50.0" />
+                    </font>
+                </Label>
+                <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backButtonPressed" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 5; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="Powrót">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                </Button>
+                <TextArea fx:id="plainTextTextArea" layoutX="14.0" layoutY="195.0" prefHeight="430.0" prefWidth="590.0" promptText="Tekst jawny" style="-fx-control-inner-background: #999999;" />
+                <TextArea fx:id="encryptedTextTextArea" layoutX="656.0" layoutY="195.0" prefHeight="430.0" prefWidth="590.0" promptText="Szyfrogram" style="-fx-control-inner-background: #999999;" />
+                <Separator layoutX="618.0" layoutY="198.0" orientation="VERTICAL" prefHeight="430.0" prefWidth="25.0" />
+                <Button fx:id="runButton" layoutX="541.0" layoutY="122.0" mnemonicParsing="false" onAction="#runButtonPressed" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 5; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="Szyfruj &gt;">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                </Button>
+                <Button fx:id="saveButton" layoutX="868.0" layoutY="636.0" mnemonicParsing="false" onAction="#saveButtonPressed" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: #373737; -fx-border-color: #0095CB; -fx-border-width: 5; -fx-text-fill: #0095CB; -fx-border-insets: 0; -fx-border-radius: 5;" text="Zapisz">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                </Button>
+                <HBox alignment="CENTER" layoutX="14.0" layoutY="127.0">
+                    <children>
+                        <Label prefHeight="45.0" prefWidth="85.0" text="p = " textFill="#0095cb">
+                            <font>
+                                <Font size="33.0" />
+                            </font>
+                            <padding>
+                                <Insets left="5.0" />
+                            </padding>
+                        </Label>
+                        <TextField fx:id="pTextField" prefHeight="42.0" prefWidth="80.0" />
+                    </children>
+                </HBox>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>
