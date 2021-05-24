@@ -40,7 +40,7 @@
                 </Button>
                 <HBox alignment="CENTER" layoutX="14.0" layoutY="127.0">
                     <children>
-                        <Label prefHeight="45.0" prefWidth="85.0" text="p = " textFill="#0095cb">
+                        <Label prefHeight="45.0" prefWidth="85.0" text="q = " textFill="#0095cb">
                             <font>
                                 <Font size="33.0" />
                             </font>
@@ -48,7 +48,7 @@
                                 <Insets left="5.0" />
                             </padding>
                         </Label>
-                        <TextField fx:id="pTextField" prefHeight="42.0" prefWidth="80.0" />
+                        <TextField fx:id="qTextField" prefHeight="42.0" prefWidth="80.0" />
                     </children>
                 </HBox>
             </children>
