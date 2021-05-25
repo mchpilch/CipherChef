@@ -84,7 +84,11 @@ public class AESEncryptionInterfaceController {
 
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(newRoot);
+
+
         scene.getStylesheets().add("CSS/style.css");
+
+
         stageTheEventSourceNodeBelongs.setScene(scene);
         stageTheEventSourceNodeBelongs.setResizable(false);
     }

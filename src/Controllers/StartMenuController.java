@@ -56,7 +56,8 @@ public class StartMenuController {
 
     public void authorsButtonPressed(ActionEvent actionEvent) throws IOException {
         // tutaj otworzy się okno przeglądarki z naszymi kontami na gicie
-        java.awt.Desktop.getDesktop().browse(URI.create("http://www.yahoo.com")); //Michał sprawdź czy u ciebie działą, bo u mnie na linuxie sypie błędy
+        java.awt.Desktop.getDesktop().browse(URI.create("https://github.com/michpil19"));
+        java.awt.Desktop.getDesktop().browse(URI.create("https://github.com/OperatorKodu"));
     }
 
     public void exitButtonPressed(ActionEvent actionEvent) {

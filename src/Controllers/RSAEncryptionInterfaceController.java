@@ -41,8 +41,12 @@ public class RSAEncryptionInterfaceController {
         encryptedTextTextArea.setEditable(false);
         encryptedTextTextArea.setWrapText(true);
         plainTextTextArea.setWrapText(true);
+
+
         qTextField.getStyleClass().add("rsa-text-field");
         pTextField.getStyleClass().add("rsa-text-field");
+
+
     }
 
     public void backButtonPressed(ActionEvent actionEvent) throws IOException {
