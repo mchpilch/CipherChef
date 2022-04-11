@@ -1,12 +1,10 @@
-# CipherChef  
+# CipherChef  -  basic cipher techniques implemented with JavaFX
+
 https://github.com/michpil19
 https://github.com/naitoramu
 
-CipherChef - basic cipher techniques implemented with JavaFX
 
 
-# MyCar
-Car follows clicks on the screen. #OOP #GUI #SWING <br/>
 Click the image below to Watch on YT!
 <br/>
 [![Ciphers PROJECT JAVA](https://img.youtube.com/vi/KJ3lubi7u2Q/0.jpg)](https://www.youtube.com/watch?v=KJ3lubi7u2Q "Click to Watch on YT!")
