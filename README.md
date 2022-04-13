@@ -1,4 +1,5 @@
-# CipherChef  -  basic cipher techniques implemented with Java and JavaFX
+# CipherChef 
+basic cipher techniques implemented with Java and JavaFX
 
 https://github.com/michpil19 
 <br/>
